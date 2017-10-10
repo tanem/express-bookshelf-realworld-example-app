@@ -1,0 +1,49 @@
+{
+  "name": "conduit-node-server",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": "8.7.0",
+    "yarn": "1.2.1"
+  },
+  "scripts": {
+    "build": "babel -D src -d dist",
+    "check-all": "yarn flow && yarn lint",
+    "clean": "rimraf dist",
+    "knex": "babel-node node_modules/.bin/knex --knexfile src/config/knex.js",
+    "lint": "eslint .",
+    "serve": "node dist/bin/www",
+    "start": "nodemon src/bin/www --exec babel-node"
+  },
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "convict": "4.0.1",
+    "cookie-parser": "1.4.3",
+    "debug": "3.1.0",
+    "es6-error": "4.0.2",
+    "express": "4.16.2",
+    "knex": "0.13.0",
+    "morgan": "1.9.0",
+    "pg": "7.3.0",
+    "serve-favicon": "2.4.5"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-eslint": "8.0.1",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "babel-preset-env": "1.6.1",
+    "eslint": "4.9.0",
+    "eslint-config-prettier": "2.6.0",
+    "eslint-plugin-flowtype": "2.39.1",
+    "eslint-plugin-prettier": "2.3.1",
+    "flow-bin": "0.57.3",
+    "nodemon": "1.12.1",
+    "prettier": "1.7.4",
+    "rimraf": "2.6.2"
+  },
+  "author": "Tane Morgan (https://github.com/tanem)",
+  "description": "My own take on Thinkster's Node.js JSON API tutorial"
+}
