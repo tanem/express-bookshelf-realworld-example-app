@@ -40,7 +40,7 @@ const config = convict({
       database: {
         doc: 'Database name',
         format: String,
-        default: 'conduit_development',
+        default: null,
         env: 'DB_NAME',
       },
       user: {
