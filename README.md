@@ -1,8 +1,6 @@
-# conduit-node-server
+# [wip] conduit-node-server
 
-_WIP_
-
-> My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorials/node-json-api).
+My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorials/node-json-api).
 
 ## setup
 
