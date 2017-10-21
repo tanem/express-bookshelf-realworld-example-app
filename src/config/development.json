@@ -1,8 +1,0 @@
-{
-  "db": {
-    "connection": {
-      "user": "conduit",
-      "password": "password"
-    }
-  }
-}

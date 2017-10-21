@@ -45,5 +45,5 @@
     "rimraf": "2.6.2"
   },
   "author": "Tane Morgan (https://github.com/tanem)",
-  "description": "My own take on Thinkster's Node.js JSON API tutorial"
+  "description": "My take on Thinkster's Node.js JSON API tutorial"
 }
