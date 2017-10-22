@@ -2,7 +2,15 @@
 
 My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorials/node-json-api).
 
-## setup
+## table of contents
+
+- [getting started](#getting-started)
+  - [prerequisites](#prerequisites)
+  - [steps](#steps)
+- [implementation details](#implementation-details)
+  - [configuration](#configuration)
+
+## getting started
 
 ### prerequisites
 
@@ -17,9 +25,9 @@ My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorial
 3. Run `nvm i` to install and use the correct Node.js version.
 4. Run `yarn` to install the required dependencies.
 5. Create a database for the `development` environment.
-6. Create a `src/config/development.json` configuration file containing the required databse information from the previous step. For example:
+6. Create a `src/config/development.json` configuration file containing the required database information from the previous step. For example:
 
-  ```json 
+  ```json
   {
     "db": {
       "connection": {
@@ -32,7 +40,7 @@ My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorial
   ```
 
 7. Create a database for the `test` environment.
-8. Create a `src/config/test.json` configuration file containing the required databse information from the previous step. For example:
+8. Create a `src/config/test.json` configuration file containing the required database information from the previous step. For example:
 
   ```json 
   {
@@ -45,3 +53,13 @@ My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorial
     }
   }
   ```
+
+  9. Run `yarn start`.
+
+## implementation details
+
+### configuration
+
+Configuration is handled by [node-convict](https://github.com/mozilla/node-convict), which provides context on each setting and enables validation and early failures for when the configuration is wrong.
+
+Some values are required, and there are also some defaults which can be overridden if required. You can do this via environment-specific configuration files, for example `development.json` and `test.json`. Environment variables are also respected, see [precedence order](https://github.com/mozilla/node-convict#precendence-order) for more information.
