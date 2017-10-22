@@ -11,7 +11,7 @@
     "build": "babel -D src -d dist",
     "check-all": "yarn flow && yarn lint",
     "clean": "rimraf dist",
-    "knex": "babel-node node_modules/.bin/knex --knexfile src/config/knex.js",
+    "knex": "babel-node node_modules/.bin/knex --knexfile src/config/knexfile.js",
     "lint": "eslint .",
     "serve": "node dist/bin/www",
     "start": "nodemon src/bin/www --exec babel-node"
