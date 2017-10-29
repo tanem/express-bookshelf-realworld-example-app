@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "body-parser": "1.18.2",
+    "bookshelf": "0.10.4",
+    "checkit": "0.7.0",
     "convict": "4.0.1",
     "cookie-parser": "1.4.3",
     "debug": "3.1.0",
@@ -25,6 +27,7 @@
     "express": "4.16.2",
     "jsonwebtoken": "8.1.0",
     "knex": "0.13.0",
+    "lodash": "4.17.4",
     "morgan": "1.9.0",
     "pg": "7.3.0",
     "serve-favicon": "2.4.5"
@@ -33,6 +36,7 @@
     "babel-cli": "6.26.0",
     "babel-eslint": "8.0.1",
     "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-syntax-object-rest-spread": "6.13.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-flow-strip-types": "6.22.0",
     "babel-preset-env": "1.6.1",
