@@ -66,6 +66,13 @@ const config = convict({
       directory: path.resolve('../data/migrations'),
     },
   },
+  secret: {
+    doc: 'JWT secret',
+    format: String,
+    default: null,
+    sensitive: true,
+    env: 'SECRET',
+  },
 });
 
 config.loadFile(path.join(__dirname, `${config.get('env')}.json`));
