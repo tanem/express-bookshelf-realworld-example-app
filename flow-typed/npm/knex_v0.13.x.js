@@ -1,5 +1,5 @@
-// flow-typed signature: be690d60c56d4d0c63b6f0e3d53428bb
-// flow-typed version: 02a2e1eba4/knex_v0.13.x/flow_>=v0.38.x
+// flow-typed signature: d7f49b298140063eef4949d61c44aff6
+// flow-typed version: 360cd81210/knex_v0.13.x/flow_>=v0.38.x
 
 declare class Knex$Transaction<R> mixins Knex$QueryBuilder<R>, events$EventEmitter, Promise<R> {
   commit(connection?: any, value?: any): Promise<R>,
@@ -12,6 +12,8 @@ declare type Knex$QueryBuilderFn<R> = (
 ) => Knex$QueryBuilder<R> | void;
 
 declare class Knex$QueryBuilder<R> mixins Promise<R> {
+  clearSelect(): this,
+  clearWhere(): this,
   select(key?: string[]): this,
   select(...key: string[]): this,
   timeout(ms: number, options?: { cancel: boolean }): this,
