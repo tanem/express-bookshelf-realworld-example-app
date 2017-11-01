@@ -14,7 +14,8 @@
     "knex": "babel-node node_modules/.bin/knex --knexfile src/config/knexfile.js",
     "lint": "eslint .",
     "serve": "node dist/bin/www",
-    "start": "nodemon src/bin/www --exec babel-node"
+    "start": "nodemon src/bin/www --exec babel-node",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "1.18.2",
@@ -43,8 +44,10 @@
     "eslint": "4.10.0",
     "eslint-config-prettier": "2.6.0",
     "eslint-plugin-flowtype": "2.39.1",
+    "eslint-plugin-jest": "21.2.0",
     "eslint-plugin-prettier": "2.3.1",
     "flow-bin": "0.57.3",
+    "jest": "21.2.1",
     "nodemon": "1.12.1",
     "prettier": "1.7.4",
     "rimraf": "2.6.2"

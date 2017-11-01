@@ -8,10 +8,12 @@
   ],
   "plugins": [
     "flowtype",
+    "jest",
     "prettier"
   ],
   "env": {
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "rules": {
     "prettier/prettier": ["error", {
