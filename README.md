@@ -39,7 +39,7 @@ My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorial
 }
 ```
 
-7. Run `yarn knex migrate:latest --env development` to update the schema.
+7. Run `NODE_ENV=development yarn knex migrate:latest` to update the schema.
 8. Create a database for the `test` environment.
 9. Create a `src/config/test.json` configuration file containing the required database information from the previous step. For example:
 
@@ -55,7 +55,7 @@ My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorial
 }
 ```
 
-10. Run `yarn knex migrate:latest --env test` to update the schema.
+10. Run `NODE_ENV=test yarn knex migrate:latest` to update the schema.
 11. Run `yarn start`.
 
 ## implementation details
