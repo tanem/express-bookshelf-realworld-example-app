@@ -47,6 +47,7 @@
     "eslint-plugin-flowtype": "2.39.1",
     "eslint-plugin-jest": "21.2.0",
     "eslint-plugin-prettier": "2.3.1",
+    "faker": "4.1.0",
     "flow-bin": "0.58.0",
     "jest": "21.2.1",
     "nodemon": "1.12.1",
@@ -54,5 +55,8 @@
     "rimraf": "2.6.2"
   },
   "author": "Tane Morgan (https://github.com/tanem)",
-  "description": "My take on Thinkster's Node.js JSON API tutorial"
+  "description": "My take on Thinkster's Node.js JSON API tutorial",
+  "jest": {
+    "setupTestFrameworkScriptFile": "./test/setup.js"
+  }
 }
