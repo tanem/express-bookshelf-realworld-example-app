@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.1",
   "license": "MIT",
+  "author": "Tane Morgan (https://github.com/tanem)",
+  "description": "My take on Thinkster's Node.js JSON API tutorial",
   "engines": {
     "node": "8.8.1",
     "yarn": "1.2.1"
@@ -54,8 +56,6 @@
     "prettier": "1.7.4",
     "rimraf": "2.6.2"
   },
-  "author": "Tane Morgan (https://github.com/tanem)",
-  "description": "My take on Thinkster's Node.js JSON API tutorial",
   "jest": {
     "setupTestFrameworkScriptFile": "./test/setup.js"
   }
