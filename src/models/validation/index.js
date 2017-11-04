@@ -22,7 +22,7 @@ Checkit.Validator.prototype.unique = async function(
   });
 
   if (resp.length > 0) {
-    throw new Error(`The ${table}.${column} field is already in use.`);
+    throw new Error(`The ${table}.${column} field is already in use`);
   }
 };
 
