@@ -13,7 +13,7 @@ passport.use(
     async (email, password, done) => {
       let user;
       try {
-        user = await new User({email});
+        user = await new User({email}).fetch();
         if (!user || !user.validPassword(password)) {
           return done(null, false, {
             errors: {'email or password': 'is invalid'},
