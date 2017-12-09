@@ -1,5 +1,3 @@
 node_modules/
-dist/
 yarn-error.log
-TODO.md
-src/config/*.json
+lib/config/*.json
