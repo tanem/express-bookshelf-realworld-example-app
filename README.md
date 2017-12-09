@@ -55,7 +55,6 @@ My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorial
 }
 ```
 
-
 11. Run `yarn start`.
 
 ## implementation details
