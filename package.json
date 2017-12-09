@@ -6,7 +6,7 @@
   "author": "Tane Morgan (https://github.com/tanem)",
   "description": "My take on Thinkster's Node.js JSON API tutorial",
   "engines": {
-    "node": "8.9.1",
+    "node": "8.9.3",
     "yarn": "1.3.2"
   },
   "scripts": {
