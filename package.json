@@ -38,14 +38,14 @@
     "serve-favicon": "2.4.5"
   },
   "devDependencies": {
-    "eslint": "4.12.1",
+    "eslint": "4.13.0",
     "eslint-config-prettier": "2.9.0",
-    "eslint-plugin-jest": "21.3.2",
+    "eslint-plugin-jest": "21.4.2",
     "eslint-plugin-prettier": "2.3.1",
     "faker": "4.1.0",
     "jest": "21.2.1",
-    "nodemon": "^1.12.1",
-    "prettier": "1.8.2",
+    "nodemon": "^1.12.5",
+    "prettier": "1.9.1",
     "rimraf": "2.6.2",
     "supertest": "3.0.0"
   },
