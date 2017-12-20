@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user integration GET /api/user with invalid token should return a 401 1`] = `
+Object {
+  "errors": Object {
+    "error": Object {
+      "code": "invalid_token",
+      "data": Object {
+        "UnauthorizedError": Array [
+          "jwt malformed",
+        ],
+      },
+      "inner": Object {
+        "message": "jwt malformed",
+        "name": "JsonWebTokenError",
+      },
+      "isBoom": true,
+      "isServer": false,
+      "message": "jwt malformed",
+      "name": "UnauthorizedError",
+      "output": Object {
+        "headers": Object {},
+        "payload": Object {
+          "error": "Unauthorized",
+          "message": "jwt malformed",
+          "statusCode": 401,
+        },
+        "statusCode": 401,
+      },
+      "status": 401,
+    },
+    "message": "jwt malformed",
+  },
+}
+`;
+
+exports[`user integration GET /api/user with valid token should return a 200 1`] = `
+Object {
+  "user": Object {
+    "bio": null,
+    "email": "Hettie84@yahoo.com",
+    "image": null,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJHYXJsYW5kMjkifQ.7pMslWtzqBvEcliKVrY78xSsDeUtEHrEVYT-c737AVw",
+    "username": "Garland29",
+  },
+}
+`;
+
+exports[`user integration POST /api/users with invalid parameters should return a 422 1`] = `
+Object {
+  "errors": Object {
+    "email": Array [
+      "can't be blank",
+    ],
+    "password": Array [
+      "can't be blank",
+    ],
+    "username": Array [
+      "can't be blank",
+    ],
+  },
+}
+`;
+
+exports[`user integration POST /api/users with valid parameters should return a 201 1`] = `
+Object {
+  "user": Object {
+    "bio": null,
+    "email": "Mervin.Graham@hotmail.com",
+    "image": null,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJNYXJsZW4uTWF5ZXJ0In0.GG1IT1d1c_fnwiewfxIU4yFR4ReaTLCLBl28ssDzN8Y",
+    "username": "Marlen.Mayert",
+  },
+}
+`;
+
+exports[`user integration POST /api/users/login with invalid parameters should return a 422 1`] = `
+Object {
+  "errors": Object {
+    "email or password": Array [
+      "is invalid",
+    ],
+  },
+}
+`;
+
+exports[`user integration POST /api/users/login with valid parameters should return a 200 1`] = `
+Object {
+  "user": Object {
+    "bio": null,
+    "email": "Gregorio_Heaney@yahoo.com",
+    "image": null,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJDaGFuZWxsZV9Cb2VobSJ9.kqR-tx1t2vf0cRB0_glGV6Mq6oThjITNQWM__TuVWJM",
+    "username": "Chanelle_Boehm",
+  },
+}
+`;
+
+exports[`user integration PUT /api/user with invalid token should return a 401 1`] = `
+Object {
+  "errors": Object {
+    "error": Object {
+      "code": "invalid_token",
+      "data": Object {
+        "UnauthorizedError": Array [
+          "jwt malformed",
+        ],
+      },
+      "inner": Object {
+        "message": "jwt malformed",
+        "name": "JsonWebTokenError",
+      },
+      "isBoom": true,
+      "isServer": false,
+      "message": "jwt malformed",
+      "name": "UnauthorizedError",
+      "output": Object {
+        "headers": Object {},
+        "payload": Object {
+          "error": "Unauthorized",
+          "message": "jwt malformed",
+          "statusCode": 401,
+        },
+        "statusCode": 401,
+      },
+      "status": 401,
+    },
+    "message": "jwt malformed",
+  },
+}
+`;
+
+exports[`user integration PUT /api/user with valid parameters should return a 200 1`] = `
+Object {
+  "user": Object {
+    "bio": "Bleep bloop",
+    "email": "London77@hotmail.com",
+    "image": "http://fillmurray.com/200/300",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJTa3llX1BvdXJvczUwIn0.x6f9jujqJMdp3BGEAE_9N9r0JUqca20-6C8FaIbSpfo",
+    "username": "Skye_Pouros50",
+  },
+}
+`;
