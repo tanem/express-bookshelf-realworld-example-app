@@ -17,7 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "async-error-catcher": "https://github.com/tanem/async-error-catcher#handle-route-parameters",
+    "async-error-catcher": "^1.1.0",
     "bcrypt": "1.0.3",
     "body-parser": "1.18.2",
     "bookshelf": "0.12.0",

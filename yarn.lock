@@ -203,9 +203,9 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
-"async-error-catcher@https://github.com/tanem/async-error-catcher#handle-route-parameters":
-  version "1.0.1"
-  resolved "https://github.com/tanem/async-error-catcher#da3790dd8338e2dd0d149840ab0bab6f6df2375f"
+async-error-catcher@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/async-error-catcher/-/async-error-catcher-1.1.0.tgz#dbeef8fdac9eca5ad0ef4836b22d12f77cfdd8ba"
 
 async@^1.4.0, async@^1.5.0:
   version "1.5.2"
