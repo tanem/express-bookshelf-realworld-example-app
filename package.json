@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "chance": "^1.0.12",
-    "eslint": "4.13.1",
+    "eslint": "4.14.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-jest": "21.5.0",
     "eslint-plugin-prettier": "2.4.0",
