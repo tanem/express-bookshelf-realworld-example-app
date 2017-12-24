@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user integration GET /api/user with invalid token should return a 401 1`] = `
+Object {
+  "errors": Object {
+    "error": Object {
+      "code": "invalid_token",
+      "data": Object {
+        "UnauthorizedError": Array [
+          "jwt malformed",
+        ],
+      },
+      "inner": Object {
+        "message": "jwt malformed",
+        "name": "JsonWebTokenError",
+      },
+      "isBoom": true,
+      "isServer": false,
+      "message": "jwt malformed",
+      "name": "UnauthorizedError",
+      "output": Object {
+        "headers": Object {},
+        "payload": Object {
+          "error": "Unauthorized",
+          "message": "jwt malformed",
+          "statusCode": 401,
+        },
+        "statusCode": 401,
+      },
+      "status": 401,
+    },
+    "message": "jwt malformed",
+  },
+}
+`;
+
+exports[`user integration POST /api/users with invalid parameters should return a 422 1`] = `
+Object {
+  "errors": Object {
+    "email": Array [
+      "can't be blank",
+    ],
+    "password": Array [
+      "can't be blank",
+    ],
+    "username": Array [
+      "can't be blank",
+    ],
+  },
+}
+`;
+
+exports[`user integration POST /api/users/login with invalid parameters should return a 422 1`] = `
+Object {
+  "errors": Object {
+    "email or password": Array [
+      "is invalid",
+    ],
+  },
+}
+`;
+
+exports[`user integration PUT /api/user with invalid token should return a 401 1`] = `
+Object {
+  "errors": Object {
+    "error": Object {
+      "code": "invalid_token",
+      "data": Object {
+        "UnauthorizedError": Array [
+          "jwt malformed",
+        ],
+      },
+      "inner": Object {
+        "message": "jwt malformed",
+        "name": "JsonWebTokenError",
+      },
+      "isBoom": true,
+      "isServer": false,
+      "message": "jwt malformed",
+      "name": "UnauthorizedError",
+      "output": Object {
+        "headers": Object {},
+        "payload": Object {
+          "error": "Unauthorized",
+          "message": "jwt malformed",
+          "statusCode": 401,
+        },
+        "statusCode": 401,
+      },
+      "status": 401,
+    },
+    "message": "jwt malformed",
+  },
+}
+`;
