@@ -26,10 +26,10 @@ Object {
 exports[`profile integration GET /api/profiles/:username with logged in user should return a 200 1`] = `
 Object {
   "profile": Object {
-    "bio": null,
+    "bio": "Contract Administrator",
     "following": false,
-    "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
-    "username": "iwo",
+    "image": "//www.gravatar.com/avatar/381695debd1a3738c5b4bb61d125ceb9",
+    "username": "wochaco",
   },
 }
 `;
@@ -37,10 +37,10 @@ Object {
 exports[`profile integration GET /api/profiles/:username without logged in user should return a 200 1`] = `
 Object {
   "profile": Object {
-    "bio": null,
+    "bio": "Interpreter",
     "following": false,
-    "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
-    "username": "manba",
+    "image": "//www.gravatar.com/avatar/95a4206b9d5f87c464fd32e7b3a67ef7",
+    "username": "ela",
   },
 }
 `;
