@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "start": "node lib/bin/www",
     "start:dev": "nodemon",
-    "test": "jest"
+    "test": "jest && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true"
   },
   "dependencies": {
     "async-error-catcher": "^1.1.0",
@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "chance": "^1.0.12",
+    "coveralls": "^3.0.0",
     "eslint": "4.14.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-jest": "21.5.0",
@@ -53,8 +54,9 @@
     "supertest": "3.0.0"
   },
   "jest": {
-    "globalSetup": "./lib/jest/global-setup.js",
-    "globalTeardown": "./lib/jest/global-teardown.js",
-    "setupTestFrameworkScriptFile": "./lib/jest/setup.js"
+    "collectCoverage": true,
+    "globalSetup": "<rootDir>/lib/jest/global-setup.js",
+    "globalTeardown": "<rootDir>/lib/jest/global-teardown.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/lib/jest/setup.js"
   }
 }
