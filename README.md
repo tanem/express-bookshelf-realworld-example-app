@@ -1,4 +1,4 @@
-# [wip] conduit-node-server
+# [wip] express-bookshelf-realworld-example-app
 
 My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorials/node-json-api).
 
@@ -31,8 +31,8 @@ My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorial
 {
   "db": {
     "connection": {
-      "database": "conduit_development",
-      "user": "conduit",
+      "database": "realworld_development",
+      "user": "realworld",
       "password": "password"
     }
   }
@@ -47,8 +47,8 @@ My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorial
 {
   "db": {
     "connection": {
-      "database": "conduit_test",
-      "user": "conduit",
+      "database": "realworld_test",
+      "user": "realworld",
       "password": "password"
     }
   }
