@@ -1,6 +1,7 @@
 # [wip] express-bookshelf-realworld-example-app
 
-My take on [Thinkster's Node.js JSON API tutorial](https://thinkster.io/tutorials/node-json-api).
+[![build status](https://img.shields.io/travis/atomic-app/react-svg/master.svg?style=flat-square)](https://travis-ci.org/atomic-app/react-svg)
+[![coverage status](https://img.shields.io/coveralls/atomic-app/react-svg.svg?style=flat-square)](https://coveralls.io/r/atomic-app/react-svg)
 
 ## table of contents
 
