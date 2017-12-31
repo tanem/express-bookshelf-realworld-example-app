@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`profile integration GET /api/profiles/:username with invalid username should return a 404 1`] = `
+exports[`profile GET /api/profiles/:username with invalid username should return a 404 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -23,7 +23,7 @@ Object {
 }
 `;
 
-exports[`profile integration GET /api/profiles/:username with logged in user should return a 200 1`] = `
+exports[`profile GET /api/profiles/:username with logged in user should return a 200 1`] = `
 Object {
   "profile": Object {
     "bio": "Contract Administrator",
@@ -34,7 +34,7 @@ Object {
 }
 `;
 
-exports[`profile integration GET /api/profiles/:username without logged in user should return a 200 1`] = `
+exports[`profile GET /api/profiles/:username without logged in user should return a 200 1`] = `
 Object {
   "profile": Object {
     "bio": "Interpreter",

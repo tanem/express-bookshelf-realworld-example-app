@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`user integration GET /api/user with invalid token should return a 401 1`] = `
+exports[`user GET /api/user with invalid token should return a 401 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -34,7 +34,7 @@ Object {
 }
 `;
 
-exports[`user integration POST /api/users with invalid parameters should return a 422 1`] = `
+exports[`user POST /api/users with invalid parameters should return a 422 1`] = `
 Object {
   "errors": Object {
     "email": Array [
@@ -50,7 +50,7 @@ Object {
 }
 `;
 
-exports[`user integration POST /api/users/login with invalid parameters should return a 422 1`] = `
+exports[`user POST /api/users/login with invalid parameters should return a 422 1`] = `
 Object {
   "errors": Object {
     "email or password": Array [
@@ -60,7 +60,7 @@ Object {
 }
 `;
 
-exports[`user integration PUT /api/user with invalid token should return a 401 1`] = `
+exports[`user PUT /api/user with invalid token should return a 401 1`] = `
 Object {
   "errors": Object {
     "error": Object {

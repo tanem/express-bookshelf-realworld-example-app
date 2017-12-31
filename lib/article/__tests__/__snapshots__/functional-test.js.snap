@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`article integration DELETE /api/articles/:slug with a logged in user and a valid slug and the user is not the author should return a 403 1`] = `
+exports[`article DELETE /api/articles/:slug with a logged in user and a valid slug and the user is not the author should return a 403 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -23,9 +23,9 @@ Object {
 }
 `;
 
-exports[`article integration DELETE /api/articles/:slug with a logged in user and a valid slug and the user is the author should return a 200 1`] = `Object {}`;
+exports[`article DELETE /api/articles/:slug with a logged in user and a valid slug and the user is the author should return a 200 1`] = `Object {}`;
 
-exports[`article integration DELETE /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+exports[`article DELETE /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -48,7 +48,7 @@ Object {
 }
 `;
 
-exports[`article integration DELETE /api/articles/:slug without a logged in user should return a 401 1`] = `
+exports[`article DELETE /api/articles/:slug without a logged in user should return a 401 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -81,7 +81,7 @@ Object {
 }
 `;
 
-exports[`article integration GET /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+exports[`article GET /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -104,7 +104,7 @@ Object {
 }
 `;
 
-exports[`article integration GET /api/articles/:slug without a logged in user and an invalid slug should return a 404 1`] = `
+exports[`article GET /api/articles/:slug without a logged in user and an invalid slug should return a 404 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -127,7 +127,7 @@ Object {
 }
 `;
 
-exports[`article integration POST /api/articles without a logged in user should return a 401 1`] = `
+exports[`article POST /api/articles without a logged in user should return a 401 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -160,7 +160,7 @@ Object {
 }
 `;
 
-exports[`article integration PUT /api/articles/:slug with a logged in user and a valid slug and the user is not the author should return a 403 1`] = `
+exports[`article PUT /api/articles/:slug with a logged in user and a valid slug and the user is not the author should return a 403 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -183,7 +183,7 @@ Object {
 }
 `;
 
-exports[`article integration PUT /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+exports[`article PUT /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
 Object {
   "errors": Object {
     "error": Object {
@@ -206,7 +206,7 @@ Object {
 }
 `;
 
-exports[`article integration PUT /api/articles/:slug without a logged in user should return a 401 1`] = `
+exports[`article PUT /api/articles/:slug without a logged in user should return a 401 1`] = `
 Object {
   "errors": Object {
     "error": Object {
