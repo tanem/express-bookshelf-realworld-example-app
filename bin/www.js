@@ -2,8 +2,8 @@
 
 const http = require('http');
 const pino = require('pino')();
-const app = require('../app');
-const config = require('../config');
+const app = require('../lib/app');
+const config = require('../lib/config');
 
 // Get port from environment and store in Express.
 // TODO: This is weird. Should just default to 3000...

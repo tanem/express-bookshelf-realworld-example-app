@@ -1,4 +1,4 @@
+config/*.json
+coverage/
 node_modules/
 yarn-error.log
-lib/config/*.json
-coverage/

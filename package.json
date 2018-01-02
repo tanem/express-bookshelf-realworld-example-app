@@ -12,9 +12,8 @@
   "scripts": {
     "knex": "knex --knexfile lib/config/knexfile.js",
     "lint": "eslint .",
-    "start": "node lib/bin/www",
-    "start:dev": "nodemon",
-    "test": "jest && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true"
+    "start": "scripts/start.sh",
+    "test": "scripts/test.sh"
   },
   "dependencies": {
     "async-error-catcher": "^1.1.0",
@@ -54,7 +53,6 @@
     "supertest": "3.0.0"
   },
   "jest": {
-    "collectCoverage": true,
     "globalSetup": "<rootDir>/lib/jest/global-setup.js",
     "globalTeardown": "<rootDir>/lib/jest/global-teardown.js",
     "setupTestFrameworkScriptFile": "<rootDir>/lib/jest/setup.js"
