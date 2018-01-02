@@ -77,10 +77,10 @@ const config = convict({
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: path.resolve(__dirname, '../migrations'),
+      directory: path.resolve(__dirname, '../data/migrations'),
     },
     seeds: {
-      directory: path.resolve(__dirname, '../seeds'),
+      directory: path.resolve(__dirname, '../data/seeds'),
     },
   },
   secret: {

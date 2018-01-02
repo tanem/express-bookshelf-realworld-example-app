@@ -10,7 +10,7 @@
     "yarn": "1.3.2"
   },
   "scripts": {
-    "knex": "knex --knexfile lib/config/knexfile.js",
+    "knex": "knex --knexfile config/knexfile.js",
     "lint": "eslint .",
     "start": "scripts/start.sh",
     "test": "scripts/test.sh"
