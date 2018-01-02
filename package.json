@@ -53,7 +53,15 @@
     "supertest": "3.0.0"
   },
   "jest": {
-    "coverageReporters": ["text-summary", "lcov"],
+    "coveragePathIgnorePatterns": [
+      "<rootDir/lib/knex/",
+      "<rootDir>/config/",
+      "<rootDir>/lib/jest/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
     "globalSetup": "<rootDir>/lib/jest/global-setup.js",
     "globalTeardown": "<rootDir>/lib/jest/global-teardown.js",
     "setupTestFrameworkScriptFile": "<rootDir>/lib/jest/setup.js"
