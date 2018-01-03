@@ -581,9 +581,9 @@ chalk@^1.0.0, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chance@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/chance/-/chance-1.0.12.tgz#6764c9cb7b4f34856fb780d07f0e17a6601c6c08"
+chance@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/chance/-/chance-1.0.13.tgz#666bec2db42b3084456a3e4f4c28a82db5ccb7e6"
 
 chardet@^0.4.0:
   version "0.4.2"
@@ -1274,7 +1274,7 @@ fast-diff@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.1.2.tgz#4b62c42b8e03de3f848460b639079920695d0154"
 
-fast-json-parse@^1.0.0:
+fast-json-parse@^1.0.0, fast-json-parse@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/fast-json-parse/-/fast-json-parse-1.0.3.tgz#43e5c61ee4efa9265633046b770fb682a7577c4d"
 
@@ -1387,7 +1387,7 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatstr@^1.0.4:
+flatstr@^1.0.4, flatstr@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/flatstr/-/flatstr-1.0.5.tgz#5b451b08cbd48e2eac54a2bbe0bf46165aa14be3"
 
@@ -2861,9 +2861,9 @@ node-pre-gyp@^0.6.39:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-nodemon@^1.14.3:
-  version "1.14.3"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.14.3.tgz#f08d66726fb9876d76956b57cc91624793de4dbb"
+nodemon@^1.14.7:
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.14.7.tgz#ef544baa64603155c2ee6dcfba9204a2cd46d355"
   dependencies:
     chokidar "^1.7.0"
     debug "^2.6.8"
@@ -3248,6 +3248,18 @@ pino@^4.10.2:
     quick-format-unescaped "^1.1.1"
     split2 "^2.2.0"
 
+pino@^4.10.3:
+  version "4.10.3"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-4.10.3.tgz#d46030524f2294fe43a2e2247ce1a7ef028c46bc"
+  dependencies:
+    chalk "^2.3.0"
+    fast-json-parse "^1.0.3"
+    fast-safe-stringify "^1.2.1"
+    flatstr "^1.0.5"
+    pump "^2.0.0"
+    quick-format-unescaped "^1.1.1"
+    split2 "^2.2.0"
+
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
@@ -3335,6 +3347,13 @@ pstree.remy@^1.1.0:
 pump@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/pump/-/pump-1.0.3.tgz#5dfe8311c33bbf6fc18261f9f34702c47c08a954"
+  dependencies:
+    end-of-stream "^1.1.0"
+    once "^1.3.1"
+
+pump@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/pump/-/pump-2.0.0.tgz#7946da1c8d622b098e2ceb2d3476582470829c9d"
   dependencies:
     end-of-stream "^1.1.0"
     once "^1.3.1"
