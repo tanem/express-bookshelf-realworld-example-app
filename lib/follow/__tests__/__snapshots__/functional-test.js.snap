@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`follow DELETE /api/profiles/:username/follow with a logged in user and a valid username should return a 200 1`] = `
+Object {
+  "profile": Object {
+    "bio": "Account Executive",
+    "following": false,
+    "image": "//www.gravatar.com/avatar/b21083770e1b6321bff13f8de9651d3d",
+    "username": "wut",
+  },
+}
+`;
+
+exports[`follow DELETE /api/profiles/:username/follow with a logged in user and an invalid username should return a 404 1`] = `
+Object {
+  "errors": Object {
+    "error": Object {
+      "data": null,
+      "isBoom": true,
+      "isServer": false,
+      "message": "Not Found",
+      "output": Object {
+        "headers": Object {},
+        "payload": Object {
+          "error": "Not Found",
+          "message": "Not Found",
+          "statusCode": 404,
+        },
+        "statusCode": 404,
+      },
+    },
+    "message": "Not Found",
+  },
+}
+`;
+
+exports[`follow DELETE /api/profiles/:username/follow without a logged in user should return a 401 1`] = `
+Object {
+  "errors": Object {
+    "error": Object {
+      "code": "credentials_required",
+      "data": Object {
+        "UnauthorizedError": Array [
+          "No authorization token was found",
+        ],
+      },
+      "inner": Object {
+        "message": "No authorization token was found",
+      },
+      "isBoom": true,
+      "isServer": false,
+      "message": "No authorization token was found",
+      "name": "UnauthorizedError",
+      "output": Object {
+        "headers": Object {},
+        "payload": Object {
+          "error": "Unauthorized",
+          "message": "No authorization token was found",
+          "statusCode": 401,
+        },
+        "statusCode": 401,
+      },
+      "status": 401,
+    },
+    "message": "No authorization token was found",
+  },
+}
+`;
+
+exports[`follow POST /api/profiles/:username/follow with a logged in user and a valid username should return a 200 1`] = `
+Object {
+  "profile": Object {
+    "bio": "Chief Medical Officer",
+    "following": true,
+    "image": "//www.gravatar.com/avatar/cb125e105a10574f985002573fc3886a",
+    "username": "soh",
+  },
+}
+`;
+
+exports[`follow POST /api/profiles/:username/follow with a logged in user and an invalid username should return a 404 1`] = `
+Object {
+  "errors": Object {
+    "error": Object {
+      "data": null,
+      "isBoom": true,
+      "isServer": false,
+      "message": "Not Found",
+      "output": Object {
+        "headers": Object {},
+        "payload": Object {
+          "error": "Not Found",
+          "message": "Not Found",
+          "statusCode": 404,
+        },
+        "statusCode": 404,
+      },
+    },
+    "message": "Not Found",
+  },
+}
+`;
+
+exports[`follow POST /api/profiles/:username/follow without a logged in user should return a 401 1`] = `
+Object {
+  "errors": Object {
+    "error": Object {
+      "code": "credentials_required",
+      "data": Object {
+        "UnauthorizedError": Array [
+          "No authorization token was found",
+        ],
+      },
+      "inner": Object {
+        "message": "No authorization token was found",
+      },
+      "isBoom": true,
+      "isServer": false,
+      "message": "No authorization token was found",
+      "name": "UnauthorizedError",
+      "output": Object {
+        "headers": Object {},
+        "payload": Object {
+          "error": "Unauthorized",
+          "message": "No authorization token was found",
+          "statusCode": 401,
+        },
+        "statusCode": 401,
+      },
+      "status": 401,
+    },
+    "message": "No authorization token was found",
+  },
+}
+`;
