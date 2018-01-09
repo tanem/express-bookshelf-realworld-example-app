@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tag GET /api/tags should return a 200 1`] = `
+Object {
+  "tags": Array [
+    "ehupezug",
+    "jazas",
+  ],
+}
+`;
