@@ -6,7 +6,7 @@
   "author": "Tane Morgan (https://github.com/tanem)",
   "description": "RealWorld example app using Express and Bookshelf.",
   "engines": {
-    "node": "8.9.3",
+    "node": "8.9.4",
     "yarn": "1.3.2"
   },
   "scripts": {
