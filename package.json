@@ -16,7 +16,7 @@
     "test": "scripts/test.sh"
   },
   "dependencies": {
-    "async-error-catcher": "^1.1.0",
+    "async-error-catcher": "^1.2.0",
     "bcrypt": "1.0.3",
     "body-parser": "1.18.2",
     "bookshelf": "0.12.1",
@@ -36,19 +36,19 @@
     "pino": "^4.10.3",
     "serve-favicon": "2.4.5",
     "slug": "^0.9.1",
-    "uuid": "^3.1.0"
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "chance": "^1.0.13",
     "coveralls": "^3.0.0",
     "eslint": "4.15.0",
     "eslint-config-prettier": "2.9.0",
-    "eslint-plugin-jest": "21.6.0",
-    "eslint-plugin-prettier": "2.4.0",
-    "jest": "22.0.4",
+    "eslint-plugin-jest": "21.7.0",
+    "eslint-plugin-prettier": "2.5.0",
+    "jest": "22.1.2",
     "moment": "^2.20.1",
-    "nodemon": "^1.14.9",
-    "prettier": "1.9.2",
+    "nodemon": "^1.14.11",
+    "prettier": "1.10.2",
     "rimraf": "2.6.2",
     "supertest": "3.0.0"
   },
