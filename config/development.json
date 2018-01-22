@@ -1,0 +1,10 @@
+{
+  "db": {
+    "connection": {
+      "database": "realworld_development",
+      "user": "realworld",
+      "password": "password"
+    }
+  },
+  "secret": "secret"
+}
