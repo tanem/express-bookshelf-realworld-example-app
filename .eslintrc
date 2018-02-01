@@ -19,6 +19,7 @@
     "es6": true
   },
   "globals": {
+    "any": false,
     "Promise": true
   },
   "rules": {
