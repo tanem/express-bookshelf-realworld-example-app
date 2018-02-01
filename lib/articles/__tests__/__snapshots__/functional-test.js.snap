@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`articles DELETE /api/articles/:slug with a logged in user and a valid slug and the user is not the author should return a 403 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Forbidden",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Forbidden",
+            "message": "Forbidden",
+            "statusCode": 403,
+          },
+          "statusCode": 403,
+        },
+      },
+      "message": "Forbidden",
+    },
+  },
+  "status": 403,
+}
+`;
+
+exports[`articles DELETE /api/articles/:slug with a logged in user and a valid slug and the user is the author should return a 200 1`] = `
+Object {
+  "body": Object {},
+  "status": 200,
+}
+`;
+
+exports[`articles DELETE /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
+exports[`articles DELETE /api/articles/:slug without a logged in user should return a 401 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Unauthorized",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Unauthorized",
+            "message": "Unauthorized",
+            "statusCode": 401,
+          },
+          "statusCode": 401,
+        },
+      },
+      "message": "Unauthorized",
+    },
+  },
+  "status": 401,
+}
+`;
+
+exports[`articles GET /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
+exports[`articles GET /api/articles/:slug without a logged in user and an invalid slug should return a 404 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
+exports[`articles POST /api/articles without a logged in user should return a 401 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Unauthorized",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Unauthorized",
+            "message": "Unauthorized",
+            "statusCode": 401,
+          },
+          "statusCode": 401,
+        },
+      },
+      "message": "Unauthorized",
+    },
+  },
+  "status": 401,
+}
+`;
+
+exports[`articles PUT /api/articles/:slug with a logged in user and a valid slug and the user is not the author should return a 403 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Forbidden",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Forbidden",
+            "message": "Forbidden",
+            "statusCode": 403,
+          },
+          "statusCode": 403,
+        },
+      },
+      "message": "Forbidden",
+    },
+  },
+  "status": 403,
+}
+`;
+
+exports[`articles PUT /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
+exports[`articles PUT /api/articles/:slug without a logged in user should return a 401 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Unauthorized",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Unauthorized",
+            "message": "Unauthorized",
+            "statusCode": 401,
+          },
+          "statusCode": 401,
+        },
+      },
+      "message": "Unauthorized",
+    },
+  },
+  "status": 401,
+}
+`;

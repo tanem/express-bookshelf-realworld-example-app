@@ -1,46 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`profile GET /api/profiles/:username with invalid username should return a 404 1`] = `
+exports[`profiles GET /api/profiles/:username with invalid username should return a 404 1`] = `
 Object {
-  "errors": Object {
-    "error": Object {
-      "data": null,
-      "isBoom": true,
-      "isServer": false,
-      "message": "Not Found",
-      "output": Object {
-        "headers": Object {},
-        "payload": Object {
-          "error": "Not Found",
-          "message": "Not Found",
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
           "statusCode": 404,
         },
-        "statusCode": 404,
       },
+      "message": "Not Found",
     },
-    "message": "Not Found",
   },
+  "status": 404,
 }
 `;
 
-exports[`profile GET /api/profiles/:username with logged in user should return a 200 1`] = `
+exports[`profiles GET /api/profiles/:username with logged in user should return a 200 1`] = `
 Object {
-  "profile": Object {
-    "bio": "Contract Administrator",
-    "following": false,
-    "image": "//www.gravatar.com/avatar/381695debd1a3738c5b4bb61d125ceb9",
-    "username": "wochaco",
+  "body": Object {
+    "profile": Object {
+      "bio": "Contract Administrator",
+      "following": false,
+      "image": "//www.gravatar.com/avatar/381695debd1a3738c5b4bb61d125ceb9",
+      "username": "wochaco",
+    },
   },
+  "status": 200,
 }
 `;
 
-exports[`profile GET /api/profiles/:username without logged in user should return a 200 1`] = `
+exports[`profiles GET /api/profiles/:username without logged in user should return a 200 1`] = `
 Object {
-  "profile": Object {
-    "bio": "Interpreter",
-    "following": false,
-    "image": "//www.gravatar.com/avatar/95a4206b9d5f87c464fd32e7b3a67ef7",
-    "username": "ela",
+  "body": Object {
+    "profile": Object {
+      "bio": "Interpreter",
+      "following": false,
+      "image": "//www.gravatar.com/avatar/95a4206b9d5f87c464fd32e7b3a67ef7",
+      "username": "ela",
+    },
   },
+  "status": 200,
 }
 `;
