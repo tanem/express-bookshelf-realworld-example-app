@@ -12,11 +12,11 @@ if (config.get('ci')) {
 }
 
 beforeAll(async () => {
-  if (!knex.client.pool) {
-    knex.client.initializePool(config.get('db'));
-  }
+  await knex.migrate.rollback();
+  await knex.migrate.latest();
 });
 
 afterAll(async () => {
+  await knex.migrate.rollback();
   await knex.destroy();
 });
