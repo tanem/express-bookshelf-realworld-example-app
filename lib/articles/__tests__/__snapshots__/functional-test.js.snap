@@ -137,6 +137,32 @@ Object {
 }
 `;
 
+exports[`articles GET /api/articles/feed without a logged in user should return a 401 1`] = `
+Object {
+  "body": Object {
+    "errors": Object {
+      "error": Object {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Unauthorized",
+        "output": Object {
+          "headers": Object {},
+          "payload": Object {
+            "error": "Unauthorized",
+            "message": "Unauthorized",
+            "statusCode": 401,
+          },
+          "statusCode": 401,
+        },
+      },
+      "message": "Unauthorized",
+    },
+  },
+  "status": 401,
+}
+`;
+
 exports[`articles POST /api/articles without a logged in user should return a 401 1`] = `
 Object {
   "body": Object {
