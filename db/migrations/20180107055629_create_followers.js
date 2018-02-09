@@ -14,7 +14,7 @@ exports.up = knex =>
       .notNullable()
       .references('users.id')
       .onDelete('CASCADE');
-    table.unique(['user', 'follower']);
+    table.unique(['follower', 'user']);
   });
 
 exports.down = knex => knex.schema.dropTableIfExists('followers');
