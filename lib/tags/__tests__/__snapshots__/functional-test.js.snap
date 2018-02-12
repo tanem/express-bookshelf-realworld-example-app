@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tags GET /api/tags should return a list of tags 1`] = `
+exports[`tags GET /api/tags should return a list of all tags 1`] = `
 Object {
   "body": Object {
     "tags": Array [

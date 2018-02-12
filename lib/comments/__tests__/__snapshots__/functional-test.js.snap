@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`comments DELETE /api/articles/:slug/comments/:id with a valid token and the user is found and the comment is found and the user is not the comment author should return a 403 1`] = `
+exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is found and the user is not the comment author should return a forbidden error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -26,14 +26,14 @@ Object {
 }
 `;
 
-exports[`comments DELETE /api/articles/:slug/comments/:id with a valid token and the user is found and the comment is found and the user is the comment author should return a 200 1`] = `
+exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is found and the user is the comment author should delete the article comment 1`] = `
 Object {
   "body": Object {},
   "status": 200,
 }
 `;
 
-exports[`comments DELETE /api/articles/:slug/comments/:id with a valid token and the user is found and the comment is not found should return a 404 1`] = `
+exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -59,7 +59,7 @@ Object {
 }
 `;
 
-exports[`comments DELETE /api/articles/:slug/comments/:id with a valid token and the user is not found should return a 401 1`] = `
+exports[`comments DELETE /api/articles/:slug/comments/:id when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -85,33 +85,7 @@ Object {
 }
 `;
 
-exports[`comments DELETE /api/articles/:slug/comments/:id without a valid token should return a 401 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
-        "data": null,
-        "isBoom": true,
-        "isServer": false,
-        "message": "Unauthorized",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
-            "error": "Unauthorized",
-            "message": "Unauthorized",
-            "statusCode": 401,
-          },
-          "statusCode": 401,
-        },
-      },
-      "message": "Unauthorized",
-    },
-  },
-  "status": 401,
-}
-`;
-
-exports[`comments GET /api/articles/:slug/comments with an invalid slug should return a 404 1`] = `
+exports[`comments GET /api/articles/:slug/comments when the slug is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -137,7 +111,7 @@ Object {
 }
 `;
 
-exports[`comments POST /api/articles/:slug/comments with a valid token and the user is found and invalid body params are passed should return a 422 1`] = `
+exports[`comments POST /api/articles/:slug/comments when the user is authenticated and invalid body params are passed should return an unprocessable entity error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -150,33 +124,7 @@ Object {
 }
 `;
 
-exports[`comments POST /api/articles/:slug/comments with a valid token and the user is not found should return a 401 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
-        "data": null,
-        "isBoom": true,
-        "isServer": false,
-        "message": "Unauthorized",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
-            "error": "Unauthorized",
-            "message": "Unauthorized",
-            "statusCode": 401,
-          },
-          "statusCode": 401,
-        },
-      },
-      "message": "Unauthorized",
-    },
-  },
-  "status": 401,
-}
-`;
-
-exports[`comments POST /api/articles/:slug/comments without a valid token should return a 401 1`] = `
+exports[`comments POST /api/articles/:slug/comments when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {

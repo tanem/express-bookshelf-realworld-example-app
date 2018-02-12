@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`articles DELETE /api/articles/:slug with a logged in user and a valid slug and the user is not the author should return a 403 1`] = `
+exports[`articles DELETE /api/articles/:slug when the user is authenticated and the article is found and the user is not the article author should return a forbidden error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -26,14 +26,14 @@ Object {
 }
 `;
 
-exports[`articles DELETE /api/articles/:slug with a logged in user and a valid slug and the user is the author should return a 200 1`] = `
+exports[`articles DELETE /api/articles/:slug when the user is authenticated and the article is found and the user is the article author should delete the article 1`] = `
 Object {
   "body": Object {},
   "status": 200,
 }
 `;
 
-exports[`articles DELETE /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+exports[`articles DELETE /api/articles/:slug when the user is authenticated and the article is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -59,7 +59,7 @@ Object {
 }
 `;
 
-exports[`articles DELETE /api/articles/:slug without a logged in user should return a 401 1`] = `
+exports[`articles DELETE /api/articles/:slug when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -85,7 +85,7 @@ Object {
 }
 `;
 
-exports[`articles GET /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+exports[`articles GET /api/articles/:slug when the user is authenticated and the article is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -111,7 +111,7 @@ Object {
 }
 `;
 
-exports[`articles GET /api/articles/:slug without a logged in user and an invalid slug should return a 404 1`] = `
+exports[`articles GET /api/articles/:slug when the user is not authenticated and the article is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -137,7 +137,7 @@ Object {
 }
 `;
 
-exports[`articles GET /api/articles/feed without a logged in user should return a 401 1`] = `
+exports[`articles GET /api/articles/feed when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -163,7 +163,7 @@ Object {
 }
 `;
 
-exports[`articles POST /api/articles without a logged in user should return a 401 1`] = `
+exports[`articles POST /api/articles when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -189,7 +189,7 @@ Object {
 }
 `;
 
-exports[`articles PUT /api/articles/:slug with a logged in user and a valid slug and the user is not the author should return a 403 1`] = `
+exports[`articles PUT /api/articles/:slug when the user is authenticated and the article is found and the user is not the article author should return a forbidden error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -215,7 +215,7 @@ Object {
 }
 `;
 
-exports[`articles PUT /api/articles/:slug with a logged in user and an invalid slug should return a 404 1`] = `
+exports[`articles PUT /api/articles/:slug when the user is authenticated and the article is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -241,7 +241,7 @@ Object {
 }
 `;
 
-exports[`articles PUT /api/articles/:slug without a logged in user should return a 401 1`] = `
+exports[`articles PUT /api/articles/:slug when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {

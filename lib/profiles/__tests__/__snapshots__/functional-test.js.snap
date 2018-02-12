@@ -1,6 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`profiles GET /api/profiles/:username with invalid username should return a 404 1`] = `
+exports[`profiles GET /api/profiles/:username when the user is authenticated should return a user profile 1`] = `
+Object {
+  "body": Object {
+    "profile": Object {
+      "bio": "Contract Administrator",
+      "following": false,
+      "image": "//www.gravatar.com/avatar/381695debd1a3738c5b4bb61d125ceb9",
+      "username": "wochaco",
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`profiles GET /api/profiles/:username when the user is not authenticated should return a user profile 1`] = `
+Object {
+  "body": Object {
+    "profile": Object {
+      "bio": "Interpreter",
+      "following": false,
+      "image": "//www.gravatar.com/avatar/95a4206b9d5f87c464fd32e7b3a67ef7",
+      "username": "ela",
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`profiles GET /api/profiles/:username when the username is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -23,33 +51,5 @@ Object {
     },
   },
   "status": 404,
-}
-`;
-
-exports[`profiles GET /api/profiles/:username with logged in user should return a 200 1`] = `
-Object {
-  "body": Object {
-    "profile": Object {
-      "bio": "Contract Administrator",
-      "following": false,
-      "image": "//www.gravatar.com/avatar/381695debd1a3738c5b4bb61d125ceb9",
-      "username": "wochaco",
-    },
-  },
-  "status": 200,
-}
-`;
-
-exports[`profiles GET /api/profiles/:username without logged in user should return a 200 1`] = `
-Object {
-  "body": Object {
-    "profile": Object {
-      "bio": "Interpreter",
-      "following": false,
-      "image": "//www.gravatar.com/avatar/95a4206b9d5f87c464fd32e7b3a67ef7",
-      "username": "ela",
-    },
-  },
-  "status": 200,
 }
 `;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`favorites DELETE /api/articles/:slug/favorite with a logged in user and an invalid slug should return a 404 1`] = `
+exports[`favorites DELETE /api/articles/:slug/favorite when the user is authenticated and the article is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -26,7 +26,7 @@ Object {
 }
 `;
 
-exports[`favorites DELETE /api/articles/:slug/favorite without a logged in user should return a 401 1`] = `
+exports[`favorites DELETE /api/articles/:slug/favorite when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -52,7 +52,7 @@ Object {
 }
 `;
 
-exports[`favorites POST /api/articles/:slug/favorite with a logged in user and an invalid slug should return a 404 1`] = `
+exports[`favorites POST /api/articles/:slug/favorite when the user is authenticated and the article is not found should return a not found error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -78,7 +78,7 @@ Object {
 }
 `;
 
-exports[`favorites POST /api/articles/:slug/favorite without a logged in user should return a 401 1`] = `
+exports[`favorites POST /api/articles/:slug/favorite when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
