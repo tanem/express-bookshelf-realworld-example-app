@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`users GET /api/user with invalid token should return a 401 1`] = `
+exports[`users GET /api/user when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -26,7 +26,7 @@ Object {
 }
 `;
 
-exports[`users POST /api/users with invalid parameters should return a 422 1`] = `
+exports[`users POST /api/users when the request body is invalid should return an unprocessable entity error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -45,7 +45,7 @@ Object {
 }
 `;
 
-exports[`users POST /api/users/login with invalid parameters should return a 422 1`] = `
+exports[`users POST /api/users/login when the request body is invalid should return an unprocessable entity error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
@@ -58,7 +58,7 @@ Object {
 }
 `;
 
-exports[`users PUT /api/user with invalid token should return a 401 1`] = `
+exports[`users PUT /api/user when the user is not authenticated should return an unauthorized error 1`] = `
 Object {
   "body": Object {
     "errors": Object {
