@@ -1,5 +1,6 @@
-NOTES.md
 config/environments/*.json
 coverage/
 node_modules/
+NOTES.md
+TODO.md
 yarn-error.log
