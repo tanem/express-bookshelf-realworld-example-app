@@ -65,7 +65,9 @@
       "lcov",
       "text-summary"
     ],
+    "globalSetup": "<rootDir>/test-support/global-setup.js",
+    "globalTeardown": "<rootDir>/test-support/global-teardown.js",
     "setupTestFrameworkScriptFile": "<rootDir>/test-support/setup-test-framework.js",
-    "testEnvironment": "node"
+    "testEnvironment": "<rootDir>/test-support/test-environment.js"
   }
 }

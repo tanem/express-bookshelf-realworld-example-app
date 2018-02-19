@@ -1,7 +1,6 @@
 'use strict';
 
 const config = require('../config');
-const {knex} = require('../db/connection');
 
 require('./custom-matchers');
 
@@ -11,12 +10,20 @@ if (config.get('ci')) {
   jest.setTimeout(10000);
 }
 
-beforeAll(async () => {
-  await knex.migrate.rollback();
-  await knex.migrate.latest();
-});
+// Ensure the DB is clean prior to running a test. Note that test-specific data
+// is set up within a test's `beforeEach`.
+beforeEach(async () => {
+  const tables = await global
+    .__KNEX_TEST__('pg_tables')
+    .select('tablename')
+    .where('schemaname', 'public');
 
-afterAll(async () => {
-  await knex.migrate.rollback();
-  await knex.destroy();
+  const tableNames = tables
+    .map(t => t.tablename)
+    .filter(t => !['knex_migrations', 'knex_migrations_lock'].includes(t))
+    .join(',');
+
+  await global.__KNEX_TEST__.raw(
+    `TRUNCATE TABLE ${tableNames} RESTART IDENTITY`,
+  );
 });
