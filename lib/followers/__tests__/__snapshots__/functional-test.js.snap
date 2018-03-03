@@ -3,7 +3,12 @@
 exports[`followers DELETE /api/profiles/:username/follow when the user is authenticated and the user to unfollow is found should unfollow the user to unfollow 1`] = `
 Object {
   "body": Object {
-    "profile": Object {},
+    "profile": Object {
+      "bio": "Account Executive",
+      "following": false,
+      "image": "//www.gravatar.com/avatar/b21083770e1b6321bff13f8de9651d3d",
+      "username": "wut",
+    },
   },
   "status": 200,
 }
@@ -64,7 +69,12 @@ Object {
 exports[`followers POST /api/profiles/:username/follow when the user is authenticated and the user to follow is found should follow the user to follow 1`] = `
 Object {
   "body": Object {
-    "profile": Object {},
+    "profile": Object {
+      "bio": "Chief Medical Officer",
+      "following": true,
+      "image": "//www.gravatar.com/avatar/cb125e105a10574f985002573fc3886a",
+      "username": "soh",
+    },
   },
   "status": 200,
 }

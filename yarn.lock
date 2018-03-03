@@ -1308,6 +1308,12 @@ expect@^22.2.2:
     jest-message-util "^22.2.0"
     jest-regex-util "^22.1.0"
 
+express-interceptor@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/express-interceptor/-/express-interceptor-1.2.0.tgz#33460a8e11dce7e5a022caf555d377e45ddb822a"
+  dependencies:
+    debug "^2.2.0"
+
 express-pino-logger@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/express-pino-logger/-/express-pino-logger-3.0.1.tgz#31befe82ed4f1d685d90eeb035923c0c79fe95cc"
