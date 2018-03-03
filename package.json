@@ -28,6 +28,7 @@
     "express": "4.16.2",
     "express-interceptor": "^1.2.0",
     "express-pino-logger": "^3.0.1",
+    "helmet": "^3.12.0",
     "jsonwebtoken": "8.2.0",
     "knex": "0.14.4",
     "lodash": "4.17.5",
