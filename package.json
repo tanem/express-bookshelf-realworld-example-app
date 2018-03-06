@@ -49,7 +49,7 @@
     "coveralls": "^3.0.0",
     "eslint": "4.18.2",
     "eslint-config-prettier": "2.9.0",
-    "eslint-plugin-jest": "21.12.3",
+    "eslint-plugin-jest": "21.13.0",
     "eslint-plugin-prettier": "2.6.0",
     "jest": "22.4.2",
     "moment": "^2.21.0",
