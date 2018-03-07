@@ -35,7 +35,7 @@
 3. Run `nvm i` to install and use the correct Node.js version.
 4. Run `yarn` to install the required dependencies.
 5. Create a database for the `development` environment.
-6. Create a `src/config/development.json` configuration file containing the required database information from the previous step. For example:
+6. Create a `src/config/development.json` configuration file containing the required database information from the previous step, along with a [JWT](https://jwt.io/) secret. For example:
 
 ```json
 {
@@ -45,7 +45,8 @@
       "user": "realworld",
       "password": "password"
     }
-  }
+  },
+  "secret": "secret"
 }
 ```
 
@@ -61,6 +62,10 @@
       "user": "realworld",
       "password": "password"
     }
+  },
+  "secret": "secret",
+  "pino": {
+    "level": "silent"
   }
 }
 ```
