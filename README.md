@@ -5,7 +5,6 @@
 
 An Express and Bookshelf based backend implementation of the [RealWorld API Spec](https://github.com/gothinkster/realworld/tree/master/api).
 
-https://github.com/gothinkster/realworld/tree/master/api
 ## table of contents
 
 - [getting started](#getting-started)
