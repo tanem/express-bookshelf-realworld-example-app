@@ -81,7 +81,7 @@ Each module is usually an Express sub-app. Code that is shared across modules is
 
 #### initializers
 
-The initialization procedure is based on [the approach taken by the Locomotive framework](http://www.locomotivejs.org/guide/initialization/). App initialization steps have been split into seperate functions in
+The initialization procedure is based on [the approach taken by the Locomotive framework](http://www.locomotivejs.org/guide/initialization/). App initialization steps have been split into separate functions in
 the `initializers/` folder, and are run in a certain order. Any required app-wide references are set on the [`app.locals`](https://expressjs.com/en/4x/api.html#app.locals) object.
 
 ### configuration
