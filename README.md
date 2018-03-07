@@ -3,7 +3,7 @@
 [![build status](https://img.shields.io/travis/tanem/express-bookshelf-realworld-example-app/master.svg?style=flat-square)](https://travis-ci.org/tanem/express-bookshelf-realworld-example-app)
 [![coverage status](https://img.shields.io/coveralls/tanem/express-bookshelf-realworld-example-app.svg?style=flat-square)](https://coveralls.io/r/tanem/express-bookshelf-realworld-example-app)
 
-> An Express and Bookshelf based backend implementation of the [RealWorld API Spec](https://github.com/gothinkster/realworld/tree/master/api).
+> An [Express](https://expressjs.com/) and [Bookshelf](http://bookshelfjs.org/) based backend implementation of the [RealWorld API Spec](https://github.com/gothinkster/realworld/tree/master/api).
 
 ## table of contents
 
