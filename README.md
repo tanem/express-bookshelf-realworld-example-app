@@ -1,11 +1,10 @@
-# [wip] express-bookshelf-realworld-example-app
+# express-bookshelf-realworld-example-app
 
 [![build status](https://img.shields.io/travis/tanem/express-bookshelf-realworld-example-app/master.svg?style=flat-square)](https://travis-ci.org/tanem/express-bookshelf-realworld-example-app)
 [![coverage status](https://img.shields.io/coveralls/tanem/express-bookshelf-realworld-example-app.svg?style=flat-square)](https://coveralls.io/r/tanem/express-bookshelf-realworld-example-app)
 
-An Express and Bookshelf based backend implementation of the [RealWorld API Spec](https://github.com/gothinkster/realworld/tree/master/api).
+> An Express and Bookshelf based backend implementation of the [RealWorld API Spec](https://github.com/gothinkster/realworld/tree/master/api).
 
-https://github.com/gothinkster/realworld/tree/master/api
 ## table of contents
 
 - [getting started](#getting-started)
@@ -70,7 +69,7 @@ https://github.com/gothinkster/realworld/tree/master/api
 
 ## implementation details
 
-High-level overview of some key decisions made building the app. Often there is more detail in the related code comments, so it's worth checking those out too.
+High-level overview of some important decisions made building the app. Check the code comments for more detail too.
 
 ### structure
 
@@ -82,7 +81,7 @@ Each module is usually an Express sub-app. Code that is shared across modules is
 
 #### initializers
 
-The initialization procedure is based on [the approach taken by the Locomotive framework]((http://www.locomotivejs.org/guide/initialization/). App initialization steps have been split into seperate functions in
+The initialization procedure is based on [the approach taken by the Locomotive framework](http://www.locomotivejs.org/guide/initialization/). App initialization steps have been split into separate functions in
 the `initializers/` folder, and are run in a certain order. Any required app-wide references are set on the [`app.locals`](https://expressjs.com/en/4x/api.html#app.locals) object.
 
 ### configuration
@@ -93,9 +92,9 @@ Some values are required, and there are also some defaults which can be overridd
 
 ### testing
 
-#### [outside-in](https://robots.thoughtbot.com/testing-from-the-outsidein)
+#### outside-in
 
-The preference is to create high-level tests first in order to test the API end-to-end from a user’s perspective. From there we can drop down into lower-level tests like unit tests (this hasn't yet been done in this repo).
+The preference is to create high-level tests first in order to test the API end-to-end from a user’s perspective. From there we can drop down into lower-level tests like unit tests (this hasn't yet been done in this repo). See [Testing from the Outside-In](https://robots.thoughtbot.com/testing-from-the-outsidein) for more information.
 
 #### run in band
 
