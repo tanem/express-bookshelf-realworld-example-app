@@ -3,7 +3,7 @@
 [![build status](https://img.shields.io/travis/tanem/express-bookshelf-realworld-example-app/master.svg?style=flat-square)](https://travis-ci.org/tanem/express-bookshelf-realworld-example-app)
 [![coverage status](https://img.shields.io/coveralls/tanem/express-bookshelf-realworld-example-app.svg?style=flat-square)](https://coveralls.io/r/tanem/express-bookshelf-realworld-example-app)
 
-> An Express and Bookshelf based backend implementation of the [RealWorld API Spec](https://github.com/gothinkster/realworld/tree/master/api).
+> An [Express](https://expressjs.com/) and [Bookshelf](http://bookshelfjs.org/) based backend implementation of the [RealWorld API Spec](https://github.com/gothinkster/realworld/tree/master/api).
 
 ## table of contents
 
@@ -24,9 +24,9 @@
 
 ### prerequisites
 
-1. [Node Version Manager](https://github.com/creationix/nvm).
-2. [Yarn](https://yarnpkg.com/en/).
-3. [PostgreSQL](https://www.postgresql.org/).
+- [Node Version Manager](https://github.com/creationix/nvm).
+- [Yarn](https://yarnpkg.com/en/).
+- [PostgreSQL](https://www.postgresql.org/).
 
 ### steps
 
@@ -35,7 +35,7 @@
 3. Run `nvm i` to install and use the correct Node.js version.
 4. Run `yarn` to install the required dependencies.
 5. Create a database for the `development` environment.
-6. Create a `src/config/development.json` configuration file containing the required database information from the previous step. For example:
+6. Create a `src/config/development.json` configuration file containing the required database information from the previous step, along with a [JWT](https://jwt.io/) secret. For example:
 
 ```json
 {
@@ -45,7 +45,8 @@
       "user": "realworld",
       "password": "password"
     }
-  }
+  },
+  "secret": "secret"
 }
 ```
 
@@ -61,6 +62,10 @@
       "user": "realworld",
       "password": "password"
     }
+  },
+  "secret": "secret",
+  "pino": {
+    "level": "silent"
   }
 }
 ```
