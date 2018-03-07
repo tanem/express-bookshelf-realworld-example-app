@@ -69,7 +69,7 @@
 
 ## implementation details
 
-High-level overview of some key decisions made building the app. Often there is more detail in the related code comments, so it's worth checking those out too.
+High-level overview of some important decisions made building the app. Check the code comments for more detail too.
 
 ### structure
 
