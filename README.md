@@ -24,9 +24,9 @@
 
 ### prerequisites
 
-1. [Node Version Manager](https://github.com/creationix/nvm).
-2. [Yarn](https://yarnpkg.com/en/).
-3. [PostgreSQL](https://www.postgresql.org/).
+- [Node Version Manager](https://github.com/creationix/nvm).
+- [Yarn](https://yarnpkg.com/en/).
+- [PostgreSQL](https://www.postgresql.org/).
 
 ### steps
 
