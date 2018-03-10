@@ -1,9 +1,0 @@
-{
-  "SublimeLinter": {
-    "linters": {
-      "flow": {
-        "disable": true
-      }
-    }
-  }
-}
