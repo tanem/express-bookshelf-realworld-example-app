@@ -1,6 +1,7 @@
 'use strict';
 
 const config = require('../config');
+const truncate = require('../db/truncate');
 
 require('./custom-matchers');
 
@@ -13,17 +14,5 @@ if (config.get('ci')) {
 // Ensure the DB is clean prior to running a test. Note that test-specific data
 // is set up within a test's `beforeEach`.
 beforeEach(async () => {
-  const tables = await global
-    .__KNEX_TEST__('pg_tables')
-    .select('tablename')
-    .where('schemaname', 'public');
-
-  const tableNames = tables
-    .map(t => t.tablename)
-    .filter(t => !['knex_migrations', 'knex_migrations_lock'].includes(t))
-    .join(',');
-
-  await global.__KNEX_TEST__.raw(
-    `TRUNCATE TABLE ${tableNames} RESTART IDENTITY`,
-  );
+  await truncate(global.__KNEX_TEST__);
 });
