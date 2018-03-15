@@ -13,8 +13,8 @@ exports.up = knex =>
       .notNullable()
       .unique();
     table.string('hashed_password').notNullable();
-    table.string('bio');
-    table.string('image');
+    table.string('bio').defaultTo('');
+    table.string('image').defaultTo('');
   });
 
 exports.down = knex => knex.schema.dropTableIfExists('users');
