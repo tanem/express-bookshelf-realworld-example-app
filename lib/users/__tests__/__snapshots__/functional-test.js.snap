@@ -49,7 +49,10 @@ exports[`users POST /api/users/login when the request body is invalid should ret
 Object {
   "body": Object {
     "errors": Object {
-      "email or password": Array [
+      "email": Array [
+        "is invalid",
+      ],
+      "password": Array [
         "is invalid",
       ],
     },
