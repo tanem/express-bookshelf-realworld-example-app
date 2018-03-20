@@ -10,6 +10,7 @@
 - [getting started](#getting-started)
   - [prerequisites](#prerequisites)
   - [steps](#steps)
+- [running tests](#running-tests)
 - [implementation details](#implementation-details)
   - [structure](#structure)
     - [group by coupling](#group-by-coupling)
@@ -71,6 +72,16 @@
 ```
 
 11. Run `yarn start`.
+
+## running tests
+
+Run the internal test suite with:
+
+```
+$ yarn test
+```
+
+This project also passes the [realworld-server-tester](https://github.com/agrison/realworld-server-tester) test suite.
 
 ## implementation details
 
