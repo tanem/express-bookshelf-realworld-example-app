@@ -72,6 +72,16 @@
 
 11. Run `yarn start`.
 
+## running tests
+
+Run the internal test suite with:
+
+```
+$ yarn test
+```
+
+This project also passes the [realworld-server-tester](https://github.com/agrison/realworld-server-tester) test suite.
+
 ## implementation details
 
 High-level overview of some important decisions made building the app. Check the code comments for more detail too.
