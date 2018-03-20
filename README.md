@@ -10,6 +10,7 @@
 - [getting started](#getting-started)
   - [prerequisites](#prerequisites)
   - [steps](#steps)
+- [running tests](#running-tests)
 - [implementation details](#implementation-details)
   - [structure](#structure)
     - [group by coupling](#group-by-coupling)
