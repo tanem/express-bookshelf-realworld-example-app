@@ -6,8 +6,7 @@
   "author": "Tane Morgan (https://github.com/tanem)",
   "description": "RealWorld example app using Express and Bookshelf.",
   "engines": {
-    "node": "8.10.0",
-    "yarn": "1.5.1"
+    "node": "8.11.1"
   },
   "scripts": {
     "knex": "knex --knexfile config/knexfile.js",
