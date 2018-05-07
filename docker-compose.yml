@@ -14,6 +14,9 @@ services:
     command: >
       bash -c "yarn knex migrate:latest &&
                yarn start"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
   postgres:
     image: postgres:10.3
     environment:
