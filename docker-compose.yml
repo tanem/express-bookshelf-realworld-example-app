@@ -10,14 +10,12 @@ services:
       - 3000:3000
     environment:
       - DB_HOST=postgres
+      - SECRET=secret
+    command: >
+      bash -c "yarn knex migrate:latest &&
+               yarn start"
   postgres:
     image: postgres:10.3-alpine
-    volumes:
-      - data:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=realworld
-      - POSTGRES_DB=realworld_development
-
-volumes:
-  data:

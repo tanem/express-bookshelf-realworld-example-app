@@ -1,0 +1,14 @@
+version: '3.2'
+
+services:
+  node:
+    environment:
+      - NODE_ENV=test
+  postgres:
+    volumes:
+      - test_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=realworld_test
+
+volumes:
+  test_data:
