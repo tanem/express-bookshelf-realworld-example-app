@@ -1,6 +1,4 @@
-FROM node:8.11.1-alpine
-
-RUN apk update && apk add bash && rm -rf /var/cache/apk/*
+FROM node:8.11.1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

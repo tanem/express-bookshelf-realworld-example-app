@@ -15,7 +15,7 @@ services:
       bash -c "yarn knex migrate:latest &&
                yarn start"
   postgres:
-    image: postgres:10.3-alpine
+    image: postgres:10.3
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=realworld

@@ -4,6 +4,7 @@ services:
   node:
     environment:
       - NODE_ENV=test
+    command: yarn test
   postgres:
     volumes:
       - test_data:/var/lib/postgresql/data
