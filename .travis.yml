@@ -1,11 +1,10 @@
-env:
-  - DB_NAME=realworld_test DB_USER=realworld DB_PASSWORD=password SECRET=secret PINO_LEVEL=silent
+sudo: required
 language: node_js
+services:
+  - docker
+script:
+  - yarn docker:test
+after_script:
+  - docker-compose down
 notifications:
   email: false
-before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.5.1
-  - export PATH=$HOME/.yarn/bin:$PATH
-before_script:
-  - psql -c 'create database realworld_test;' -U postgres
-  - psql -c "create user realworld with password 'password';" -U postgres
