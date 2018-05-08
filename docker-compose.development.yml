@@ -5,6 +5,8 @@ services:
     environment:
       - NODE_ENV=development
   postgres:
+    ports:
+      - 5432:5432
     volumes:
       - development_data:/var/lib/postgresql/data
     environment:
