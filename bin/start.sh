@@ -5,5 +5,6 @@ set -e
 if [ "$NODE_ENV" = "production" ]; then
   node lib/server.js
 else
-  nodemon lib/server.js
+  $(yarn bin)/knex --knexfile config/knexfile.js migrate:latest
+  $(yarn bin)/nodemon lib/server.js
 fi  

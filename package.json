@@ -9,11 +9,10 @@
     "node": "8.11.1"
   },
   "scripts": {
-    "knex": "knex --knexfile config/knexfile.js",
     "lint": "eslint .",
-    "start": "bin/start.sh",
-    "test": "bin/test.sh",
-    "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml up --abort-on-container-exit"
+    "start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up",
+    "test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml up --exit-code-from node",
+    "down": "docker-compose down"
   },
   "dependencies": {
     "async-error-catcher": "^1.2.0",

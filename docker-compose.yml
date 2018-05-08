@@ -11,9 +11,6 @@ services:
     environment:
       - DB_HOST=postgres
       - SECRET=secret
-    command: >
-      bash -c "yarn knex migrate:latest &&
-               yarn start"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules

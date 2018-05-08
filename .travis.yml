@@ -2,9 +2,7 @@ sudo: required
 language: node_js
 services:
   - docker
-script:
-  - yarn docker:test
 after_script:
-  - docker-compose down
+  - yarn down
 notifications:
   email: false
