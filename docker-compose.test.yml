@@ -5,6 +5,8 @@ services:
     environment:
       - NODE_ENV=test
       - CI
+      - TRAVIS_JOB_ID
+      - TRAVIS_PULL_REQUEST
     command: bin/test.sh
   postgres:
     volumes:
