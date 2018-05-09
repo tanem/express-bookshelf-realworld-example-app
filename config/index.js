@@ -98,9 +98,7 @@ const config = convict({
   },
 });
 
-if (!config.get('ci')) {
-  config.loadFile(path.join(__dirname, `${config.get('env')}.json`));
-}
+config.loadFile(path.join(__dirname, `${config.get('env')}.json`));
 config.validate({allowed: 'strict'});
 
 module.exports = config;

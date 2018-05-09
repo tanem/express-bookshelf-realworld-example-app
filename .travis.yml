@@ -2,7 +2,7 @@ sudo: required
 language: node_js
 services:
   - docker
-after_script:
-  - yarn down
+script:
+  - yarn test --build --exit-code-from node
 notifications:
   email: false

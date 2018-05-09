@@ -4,6 +4,7 @@ services:
   node:
     environment:
       - NODE_ENV=test
+      - CI
     command: bin/test.sh
   postgres:
     volumes:
