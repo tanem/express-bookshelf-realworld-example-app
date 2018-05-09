@@ -3,10 +3,12 @@ version: '3.2'
 services:
   node:
     environment:
-      - NODE_ENV=test
-      - COVERALLS_SERVICE_NAME=travis-ci
       - CI
       - COVERALLS_REPO_TOKEN
+      - NODE_ENV=test
+      - TRAVIS
+      - TRAVIS_JOB_ID
+      - TRAVIS_PULL_REQUEST
     command: bin/test.sh
   postgres:
     volumes:
