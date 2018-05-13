@@ -10,9 +10,12 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up",
-    "test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml up",
-    "down": "docker-compose down"
+    "test": "bin/test.sh",
+    "start": "bin/start.sh",
+    "db:truncate": "bin/truncate.js",
+    "docker:db:truncate": "docker-compose exec node yarn db:truncate",
+    "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml run node yarn test",
+    "docker:start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up"
   },
   "dependencies": {
     "async-error-catcher": "^1.2.0",

@@ -3,7 +3,7 @@ language: node_js
 services:
   - docker
 script:
-  - yarn test --build --exit-code-from node
+  - yarn docker:test
 notifications:
   email: false
 env:

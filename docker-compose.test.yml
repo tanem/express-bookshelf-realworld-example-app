@@ -9,7 +9,6 @@ services:
       - TRAVIS
       - TRAVIS_JOB_ID
       - TRAVIS_PULL_REQUEST
-    command: bin/test.sh
   postgres:
     volumes:
       - test_data:/var/lib/postgresql/data

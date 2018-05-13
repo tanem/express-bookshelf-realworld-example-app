@@ -4,7 +4,6 @@ services:
   node:
     environment:
       - NODE_ENV=development
-    command: bin/start.sh
   postgres:
     ports:
       - 5432:5432
