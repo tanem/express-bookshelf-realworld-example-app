@@ -3,6 +3,7 @@ version: '3.2'
 services:
   node:
     environment:
+      - DB_NAME=realworld_development
       - NODE_ENV=development
   postgres:
     ports:

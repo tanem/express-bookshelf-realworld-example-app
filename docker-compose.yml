@@ -10,6 +10,8 @@ services:
       - 3000:3000
     environment:
       - DB_HOST=postgres
+      - DB_PASSWORD=password
+      - DB_USER=realworld
       - SECRET=secret
     volumes:
       - .:/usr/src/app

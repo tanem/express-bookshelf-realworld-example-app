@@ -1,7 +1,8 @@
 'use strict';
 
-const path = require('path');
 const convict = require('convict');
+const fs = require('fs');
+const path = require('path');
 
 const config = convict({
   env: {
@@ -98,7 +99,10 @@ const config = convict({
   },
 });
 
-config.loadFile(path.join(__dirname, `${config.get('env')}.json`));
+const configFilePath = path.join(__dirname, `${config.get('env')}.json`);
+if (fs.existsSync(configFilePath)) {
+  config.loadFile(configFilePath);
+}
 config.validate({allowed: 'strict'});
 
 module.exports = config;
