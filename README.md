@@ -8,8 +8,6 @@
 ## table of contents
 
 * [getting started](#getting-started)
-  * [prerequisites](#prerequisites)
-  * [steps](#steps)
 * [running tests](#running-tests)
 * [implementation details](#implementation-details)
   * [structure](#structure)
@@ -37,7 +35,7 @@ Run the full test suite with:
 $ yarn docker:test
 ```
 
-To run in watch mode:
+CLI args will be passed through to Jest. For example, to run in watch mode:
 
 ```
 $ yarn docker:test --watch
@@ -49,7 +47,7 @@ This project also passes the [realworld-server-tester](https://github.com/agriso
 $ yarn docker:start
 ```
 
-Then, assuming you've cloned the `realworld-server-tester` repo and changed to the correct directory, run:
+Then in a new terminal window, assuming you've cloned the `realworld-server-tester` repo and changed to the correct directory, run:
 
 ```
 $ java -jar target/realworld-server-tester-0.1.0-SNAPSHOT-standalone.jar http://localhost:3000/api
