@@ -23,27 +23,37 @@
 
 ## getting started
 
-### prerequisites
-
-* [Yarn](https://yarnpkg.com/en/).
-* [Docker Compose](https://docs.docker.com/compose/install/).
-
-### steps
+Ensure [Docker Compose](https://docs.docker.com/compose/install/) is installed, then:
 
 1.  Clone this repo.
 2.  Change to the above dir.
-3.  Run `yarn` to install the required dependencies.
-4.  Run `yarn docker:start` to start the app.
+3.  Run `yarn docker:start` to start the app.
 
 ## running tests
 
-Run the internal test suite with:
+Run the full test suite with:
 
 ```
-$ yarn test
+$ yarn docker:test
 ```
 
-This project also passes the [realworld-server-tester](https://github.com/agrison/realworld-server-tester) test suite.
+To run in watch mode:
+
+```
+$ yarn docker:test --watch
+```
+
+This project also passes the [realworld-server-tester](https://github.com/agrison/realworld-server-tester) test suite. First start the server:
+
+```
+$ yarn docker:start
+```
+
+Then, assuming you've cloned the `realworld-server-tester` repo and changed to the correct directory, run:
+
+```
+$ java -jar target/realworld-server-tester-0.1.0-SNAPSHOT-standalone.jar http://localhost:3000/api
+```
 
 ## implementation details
 
