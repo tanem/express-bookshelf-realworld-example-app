@@ -5,9 +5,6 @@
   "license": "MIT",
   "author": "Tane Morgan (https://github.com/tanem)",
   "description": "RealWorld example app using Express and Bookshelf.",
-  "engines": {
-    "node": "8.11.1"
-  },
   "scripts": {
     "lint": "eslint .",
     "test": "bin/test.sh",
