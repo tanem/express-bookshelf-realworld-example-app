@@ -1,7 +1,7 @@
 .vscode/
 NOTES.md
 TODO.md
+_coverage/
 config/environments/*.json
-coverage/
 node_modules/
 yarn-error.log

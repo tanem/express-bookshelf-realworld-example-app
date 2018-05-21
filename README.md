@@ -7,81 +7,51 @@
 
 ## table of contents
 
-- [getting started](#getting-started)
-  - [prerequisites](#prerequisites)
-  - [steps](#steps)
-- [running tests](#running-tests)
-- [implementation details](#implementation-details)
-  - [structure](#structure)
-    - [group by coupling](#group-by-coupling)
-    - [initializers](#initializers)
-  - [configuration](#configuration)
-  - [testing](#testing)
-    - [outside in](#outside-in)
-    - [run in band](#run-in-band)
-    - [prefer snapshot tests](#prefer-snapshot-tests)
+* [getting started](#getting-started)
+* [running tests](#running-tests)
+* [implementation details](#implementation-details)
+  * [structure](#structure)
+    * [group by coupling](#group-by-coupling)
+    * [initializers](#initializers)
+  * [configuration](#configuration)
+  * [testing](#testing)
+    * [outside in](#outside-in)
+    * [run in band](#run-in-band)
+    * [prefer snapshot tests](#prefer-snapshot-tests)
 
 ## getting started
 
-### prerequisites
+Ensure [Docker Compose](https://docs.docker.com/compose/install/) is installed, then:
 
-- [Node Version Manager](https://github.com/creationix/nvm).
-- [Yarn](https://yarnpkg.com/en/).
-- [PostgreSQL](https://www.postgresql.org/).
-
-### steps
-
-1. Clone this repo.
-2. Change to the above dir.
-3. Run `nvm i` to install and use the correct Node.js version.
-4. Run `yarn` to install the required dependencies.
-5. Create a database for the `development` environment.
-6. Create a `src/config/development.json` configuration file containing the required database information from the previous step, along with a [JWT](https://jwt.io/) secret. For example:
-
-```json
-{
-  "db": {
-    "connection": {
-      "database": "realworld_development",
-      "user": "realworld",
-      "password": "password"
-    }
-  },
-  "secret": "secret"
-}
-```
-
-7. Run `NODE_ENV=development yarn knex migrate:latest` to update the schema.
-8. Create a database for the `test` environment.
-9. Create a `src/config/test.json` configuration file containing the required database information from the previous step (note that the migrations are run automatically as part of the test setup process). For example:
-
-```json 
-{
-  "db": {
-    "connection": {
-      "database": "realworld_test",
-      "user": "realworld",
-      "password": "password"
-    }
-  },
-  "secret": "secret",
-  "pino": {
-    "level": "silent"
-  }
-}
-```
-
-11. Run `yarn start`.
+1.  Clone this repo.
+2.  Change to the above dir.
+3.  Run `yarn docker:start` to start the app.
 
 ## running tests
 
-Run the internal test suite with:
+Run the full test suite with:
 
 ```
-$ yarn test
+$ yarn docker:test
 ```
 
-This project also passes the [realworld-server-tester](https://github.com/agrison/realworld-server-tester) test suite.
+CLI args will be passed through to Jest. For example, to run in watch mode:
+
+```
+$ yarn docker:test --watch
+```
+
+This project also passes the [realworld-server-tester](https://github.com/agrison/realworld-server-tester) test suite. First start the server:
+
+```
+$ yarn docker:start
+```
+
+Then in a new terminal window, assuming you've cloned the `realworld-server-tester` repo and changed to the correct directory, run:
+
+```
+$ java -jar target/realworld-server-tester-0.1.0-SNAPSHOT-standalone.jar http://localhost:3000/api
+```
 
 ## implementation details
 

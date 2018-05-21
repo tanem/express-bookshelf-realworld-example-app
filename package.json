@@ -5,15 +5,14 @@
   "license": "MIT",
   "author": "Tane Morgan (https://github.com/tanem)",
   "description": "RealWorld example app using Express and Bookshelf.",
-  "engines": {
-    "node": "8.10.0",
-    "yarn": "1.5.1"
-  },
   "scripts": {
-    "knex": "knex --knexfile config/knexfile.js",
     "lint": "eslint .",
+    "test": "bin/test.sh",
     "start": "bin/start.sh",
-    "test": "bin/test.sh"
+    "db:truncate": "bin/truncate.js",
+    "docker:db:truncate": "docker-compose exec node yarn db:truncate",
+    "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml run node yarn test",
+    "docker:start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up"
   },
   "dependencies": {
     "async-error-catcher": "^1.2.0",
@@ -38,6 +37,7 @@
     "passport-local": "1.0.0",
     "pg": "7.4.1",
     "pino": "^4.13.0",
+    "pino-pretty": "^1.0.1",
     "require-directory": "^2.1.1",
     "serve-favicon": "2.4.5",
     "slug": "^0.9.1",

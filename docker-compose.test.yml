@@ -1,0 +1,21 @@
+version: '3.2'
+
+services:
+  node:
+    environment:
+      - CI
+      - COVERALLS_REPO_TOKEN
+      - DB_NAME=realworld_test
+      - NODE_ENV=test
+      - PINO_LEVEL=silent
+      - TRAVIS
+      - TRAVIS_JOB_ID
+      - TRAVIS_PULL_REQUEST
+  postgres:
+    volumes:
+      - test_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=realworld_test
+
+volumes:
+  test_data:

@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  node:
+    environment:
+      - DB_NAME=realworld_development
+      - NODE_ENV=development
+  postgres:
+    ports:
+      - 5432:5432
+    volumes:
+      - development_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=realworld_development
+
+volumes:
+  development_data:
