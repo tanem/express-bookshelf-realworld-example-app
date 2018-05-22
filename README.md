@@ -7,6 +7,7 @@
 
 ## table of contents
 
+* [intent](#intent)
 * [getting started](#getting-started)
 * [running tests](#running-tests)
 * [implementation details](#implementation-details)
@@ -18,6 +19,10 @@
     * [outside in](#outside-in)
     * [run in band](#run-in-band)
     * [prefer snapshot tests](#prefer-snapshot-tests)
+
+## intent
+
+This project was created in order to familiarise myself with some key technologies in use at my day job. It's not intended to be production ready, but PRs that address this and any other issues are welcome!
 
 ## getting started
 
