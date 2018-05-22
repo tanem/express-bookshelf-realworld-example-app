@@ -19,6 +19,7 @@
     * [outside in](#outside-in)
     * [run in band](#run-in-band)
     * [prefer snapshot tests](#prefer-snapshot-tests)
+* [license](#license)
 
 ## intent
 
@@ -94,3 +95,7 @@ Since we're hitting a real DB via our functional tests, we want to run them seri
 #### prefer snapshot tests
 
 Where possible Jest's [snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html) feature is used in order to validate key parts of the API response. Where this is not straightforward, for example when the response returns creation dates which vary over time, we've fallen back to more specific assertions.
+
+## license
+
+MIT
