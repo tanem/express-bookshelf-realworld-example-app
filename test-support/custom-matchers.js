@@ -1,6 +1,6 @@
 'use strict';
 
-const addMatchers = require('add-matchers');
+const {addMatchers} = require('add-matchers');
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
 const {isNumber} = require('lodash/fp');
