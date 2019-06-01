@@ -5,6 +5,6 @@
     ":disableRateLimiting",
     ":docker",
     ":pinVersions",
-    ":rebaseStalePrs",
+    ":rebaseStalePrs"
   ]
 }
