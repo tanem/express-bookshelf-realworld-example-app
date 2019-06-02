@@ -3,8 +3,8 @@ FROM node:10.16.0
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock ./
-RUN yarn
+COPY package.json package-lock.json ./
+RUN npm install
 
 COPY . .
 
