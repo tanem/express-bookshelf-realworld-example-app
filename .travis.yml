@@ -5,6 +5,7 @@ node_js:
 services:
   - docker
 script:
+  - npm run check:format
   - npm run lint
   - npm run docker:test
 notifications:

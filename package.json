@@ -6,13 +6,15 @@
   "author": "Tane Morgan (https://github.com/tanem)",
   "description": "RealWorld example app using Express and Bookshelf.",
   "scripts": {
-    "lint": "eslint .",
-    "test": "bin/test.sh",
-    "start": "bin/start.sh",
+    "check:format": "prettier --list-different \"**/*.js\"",
     "db:truncate": "bin/truncate.js",
     "docker:db:truncate": "docker-compose exec node npm run db:truncate",
+    "docker:start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up",
     "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml run node npm run test",
-    "docker:start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up"
+    "format": "prettier --write \"**/*.js\"",
+    "lint": "eslint .",
+    "start": "bin/start.sh",
+    "test": "bin/test.sh"
   },
   "dependencies": {
     "async-error-catcher": "1.2.0",
@@ -69,7 +71,13 @@
     ],
     "globalSetup": "<rootDir>/test-support/global-setup.js",
     "globalTeardown": "<rootDir>/test-support/global-teardown.js",
-    "setupFilesAfterEnv": ["<rootDir>/test-support/setup-test-framework.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test-support/setup-test-framework.js"
+    ],
     "testEnvironment": "<rootDir>/test-support/test-environment.js"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }
