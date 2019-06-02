@@ -5,8 +5,8 @@ node_js:
 services:
   - docker
 script:
-  - yarn lint
-  - yarn docker:test
+  - npm run lint
+  - npm run docker:test
 notifications:
   email: false
 env:

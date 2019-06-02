@@ -4,4 +4,3 @@ TODO.md
 _coverage/
 config/environments/*.json
 node_modules/
-yarn-error.log

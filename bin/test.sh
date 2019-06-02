@@ -3,8 +3,8 @@
 set -e
 
 if [ "$CI" = true ]; then
-  $(yarn bin)/jest -i --coverage
+  npx jest -i --coverage
   cat ./_coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 else
-  $(yarn bin)/jest -i "$@"
+  npx jest -i "$@"
 fi

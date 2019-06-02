@@ -10,8 +10,8 @@
     "test": "bin/test.sh",
     "start": "bin/start.sh",
     "db:truncate": "bin/truncate.js",
-    "docker:db:truncate": "docker-compose exec node yarn db:truncate",
-    "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml run node yarn test",
+    "docker:db:truncate": "docker-compose exec node npm run db:truncate",
+    "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml run node npm run test",
     "docker:start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up"
   },
   "dependencies": {
@@ -69,7 +69,7 @@
     ],
     "globalSetup": "<rootDir>/test-support/global-setup.js",
     "globalTeardown": "<rootDir>/test-support/global-teardown.js",
-    "setupTestFrameworkScriptFile": "<rootDir>/test-support/setup-test-framework.js",
+    "setupFilesAfterEnv": ["<rootDir>/test-support/setup-test-framework.js"],
     "testEnvironment": "<rootDir>/test-support/test-environment.js"
   }
 }
