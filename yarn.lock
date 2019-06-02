@@ -145,6 +145,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@hapi/bourne@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@hapi/bourne/-/bourne-1.3.2.tgz#0a7095adea067243ce3283e1b56b8a8f453b242a"
+  integrity sha512-1dVNHT76Uu5N3eJNTYcvxee+jzX4Z9lfciqRRHCU27ihbUcYi+iSc2iml5Ke1LXe1SyJCLA0+14Jh4tXJgOppA==
+
 "@jest/console@^24.7.1":
   version "24.7.1"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.7.1.tgz#32a9e42535a97aedfe037e725bd67e954b459545"
@@ -695,11 +700,6 @@ boom@7.3.0:
   integrity sha512-Swpoyi2t5+GhOEGw8rEsKvTxFLIDiiKoUc2gsoV6Lyr43LHBIzch3k2MvYUs8RTROrIkVJ3Al0TkaOGjnb+B6A==
   dependencies:
     hoek "6.x.x"
-
-bourne@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/bourne/-/bourne-1.1.2.tgz#e290b5bd7166635632eaf8ef12b006b2d4a75b83"
-  integrity sha512-b2dgVkTZhkQirNMohgC00rWfpVqEi9y5tKM1k3JvoNx05ODtfQoPPd4js9CYFQoY0IM8LAmnJulEuWv74zjUOg==
 
 boxen@^1.2.1:
   version "1.3.0"
@@ -4102,13 +4102,13 @@ pino-http@^4.0.0:
     pino "^5.0.0"
     pino-std-serializers "^2.1.0"
 
-pino-pretty@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-3.0.0.tgz#915a8fb6ecab609535809a08f3e3f0c70dc17409"
-  integrity sha512-OQCKEit08mVgTQbxBZHScNiwdodJIPgxKFPIStQBZXj09yg94h4OHsbgFCotwn7Ew26ASTbaW4CzWFpsBeynhA==
+pino-pretty@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-3.1.0.tgz#8309ea065f40dab8df0c2638b4fbbafd8148d1e7"
+  integrity sha512-/cquelJ9tul0PWDnZMi0PDEmoy9DVjWFdg7euCV6fAFQ5pWBIAayxKSfWimeAArPjXSdLiPKojH5eie3Ch4pbw==
   dependencies:
+    "@hapi/bourne" "^1.3.2"
     args "^5.0.1"
-    bourne "^1.1.2"
     chalk "^2.4.2"
     dateformat "^3.0.3"
     fast-safe-stringify "^2.0.6"
