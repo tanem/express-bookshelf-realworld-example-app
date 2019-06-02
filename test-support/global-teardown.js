@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
 module.exports = async () => {
-  await global.__KNEX_TEST__.migrate.rollback();
-  await global.__KNEX_TEST__.destroy();
-};
+  await global.__KNEX_TEST__.migrate.rollback()
+  await global.__KNEX_TEST__.destroy()
+}

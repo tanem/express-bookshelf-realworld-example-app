@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-const config = require('./');
+const config = require('./')
 
-module.exports = config.get('db');
+module.exports = config.get('db')

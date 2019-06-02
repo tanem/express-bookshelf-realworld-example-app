@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const bcrypt = require('bcrypt');
-const chance = require('chance').Chance('users-seed');
-const moment = require('moment');
+const bcrypt = require('bcrypt')
+const chance = require('chance').Chance('users-seed')
+const moment = require('moment')
 
 const getUsers = () =>
   ['user-one', 'user-two'].map(username => ({
@@ -12,10 +12,10 @@ const getUsers = () =>
     hashed_password: bcrypt.hashSync('password', 12),
     image: chance.avatar(),
     updated_at: moment().toISOString(),
-    username,
-  }));
+    username
+  }))
 
 exports.seed = async knex => {
-  await knex('users').del();
-  await knex('users').insert(getUsers());
-};
+  await knex('users').del()
+  await knex('users').insert(getUsers())
+}

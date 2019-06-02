@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
 exports.up = knex =>
   knex.schema.createTable('tags', table => {
-    table.increments();
-    table.timestamps();
+    table.increments()
+    table.timestamps()
     table
       .string('name')
       .notNullable()
-      .unique();
-  });
+      .unique()
+  })
 
-exports.down = knex => knex.schema.dropTableIfExists('tags');
+exports.down = knex => knex.schema.dropTableIfExists('tags')
