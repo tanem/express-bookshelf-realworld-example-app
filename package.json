@@ -18,7 +18,7 @@
     "async-error-catcher": "1.2.0",
     "bcrypt": "3.0.6",
     "body-parser": "1.19.0",
-    "bookshelf": "0.14.2",
+    "bookshelf": "0.15.1",
     "boom": "7.3.0",
     "checkit": "0.7.0",
     "convict": "5.0.0",
