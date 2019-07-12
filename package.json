@@ -46,7 +46,7 @@
   "devDependencies": {
     "add-matchers": "0.6.2",
     "chance": "1.0.18",
-    "coveralls": "3.0.4",
+    "coveralls": "3.0.5",
     "eslint": "6.0.1",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-jest": "22.7.2",
