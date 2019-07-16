@@ -15,11 +15,11 @@
     "docker:start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up"
   },
   "dependencies": {
+    "@hapi/boom": "7.4.2",
     "async-error-catcher": "1.2.0",
     "bcrypt": "3.0.6",
     "body-parser": "1.19.0",
     "bookshelf": "0.15.1",
-    "boom": "7.3.0",
     "checkit": "0.7.0",
     "convict": "5.0.0",
     "cookie-parser": "1.4.4",
@@ -69,7 +69,9 @@
     ],
     "globalSetup": "<rootDir>/test-support/global-setup.js",
     "globalTeardown": "<rootDir>/test-support/global-teardown.js",
-    "setupFilesAfterEnv": ["<rootDir>/test-support/setup-test-framework.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test-support/setup-test-framework.js"
+    ],
     "testEnvironment": "<rootDir>/test-support/test-environment.js"
   }
 }
