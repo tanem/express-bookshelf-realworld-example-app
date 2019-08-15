@@ -37,7 +37,7 @@
     "passport-local": "1.0.0",
     "pg": "7.12.1",
     "pino": "5.13.2",
-    "pino-pretty": "3.2.0",
+    "pino-pretty": "3.2.1",
     "require-directory": "2.1.1",
     "serve-favicon": "2.5.0",
     "slug": "1.1.0",
