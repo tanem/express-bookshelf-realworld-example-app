@@ -41,7 +41,7 @@
     "require-directory": "2.1.1",
     "serve-favicon": "2.5.0",
     "slug": "1.1.0",
-    "uuid": "3.3.2"
+    "uuid": "3.3.3"
   },
   "devDependencies": {
     "add-matchers": "0.6.2",
