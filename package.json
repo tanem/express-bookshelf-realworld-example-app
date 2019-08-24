@@ -47,7 +47,7 @@
     "add-matchers": "0.6.2",
     "chance": "1.0.18",
     "coveralls": "3.0.6",
-    "eslint": "6.2.1",
+    "eslint": "6.2.2",
     "eslint-config-prettier": "6.1.0",
     "eslint-plugin-jest": "22.15.2",
     "eslint-plugin-prettier": "3.1.0",
