@@ -15,7 +15,7 @@
     "docker:start": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up"
   },
   "dependencies": {
-    "@hapi/boom": "7.4.11",
+    "@hapi/boom": "8.0.1",
     "async-error-catcher": "1.2.0",
     "bcrypt": "3.0.6",
     "body-parser": "1.19.0",
