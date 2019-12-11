@@ -1,10 +1,16 @@
 {
   "extends": [
-    "config:base",
+    "config:js-app",
     ":automergeMinor",
     ":disableRateLimiting",
     ":docker",
-    ":pinVersions",
-    ":rebaseStalePrs"
-  ]
+    ":rebaseStalePrs",
+    ":masterIssue"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": "at any time",
+    "stabilityDays": 0
+  },
+  "stabilityDays": 3
 }
