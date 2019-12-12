@@ -6,7 +6,7 @@ Object {
     "profile": Object {
       "bio": "Account Executive",
       "following": false,
-      "image": "//www.gravatar.com/avatar/b21083770e1b6321bff13f8de9651d3d",
+      "image": "//www.gravatar.com/avatar/042d96a198ea28c8f54e055a3679e9cd",
       "username": "wut",
     },
   },
@@ -72,7 +72,7 @@ Object {
     "profile": Object {
       "bio": "Chief Medical Officer",
       "following": true,
-      "image": "//www.gravatar.com/avatar/cb125e105a10574f985002573fc3886a",
+      "image": "//www.gravatar.com/avatar/4bdd6542a6dbc1d204b4cdab46221aed",
       "username": "soh",
     },
   },
