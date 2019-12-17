@@ -8,9 +8,7 @@
     ":masterIssue"
   ],
   "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": "at any time",
-    "stabilityDays": 0
+    "enabled": true
   },
   "stabilityDays": 3
 }
