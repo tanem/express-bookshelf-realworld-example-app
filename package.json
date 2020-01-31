@@ -36,7 +36,7 @@
     "passport-anonymous": "1.0.1",
     "passport-jwt": "4.0.0",
     "passport-local": "1.0.0",
-    "pg": "7.17.1",
+    "pg": "7.18.1",
     "pino": "5.16.0",
     "pino-pretty": "3.5.0",
     "require-directory": "2.1.1",
