@@ -1,7 +1,7 @@
 'use strict';
 
-exports.up = knex =>
-  knex.schema.createTable('favorites', table => {
+exports.up = (knex) =>
+  knex.schema.createTable('favorites', (table) => {
     table.increments();
     table.timestamps();
     table
@@ -17,4 +17,4 @@ exports.up = knex =>
     table.unique(['article', 'user']);
   });
 
-exports.down = knex => knex.schema.dropTableIfExists('favorites');
+exports.down = (knex) => knex.schema.dropTableIfExists('favorites');

@@ -1,13 +1,10 @@
 'use strict';
 
-exports.up = knex =>
-  knex.schema.createTable('articles', table => {
+exports.up = (knex) =>
+  knex.schema.createTable('articles', (table) => {
     table.increments();
     table.timestamps();
-    table
-      .string('slug')
-      .notNullable()
-      .unique();
+    table.string('slug').notNullable().unique();
     table.string('title');
     table.string('description');
     table.text('body');
@@ -18,4 +15,4 @@ exports.up = knex =>
       .onDelete('CASCADE');
   });
 
-exports.down = knex => knex.schema.dropTableIfExists('articles');
+exports.down = (knex) => knex.schema.dropTableIfExists('articles');
