@@ -5,10 +5,10 @@ const moment = require('moment');
 const slug = require('slug');
 const uuidv4 = require('uuid/v4');
 
-const getArticles = async knex => {
+const getArticles = async (knex) => {
   const userIds = await knex('users').pluck('id');
   return userIds
-    .map(userId =>
+    .map((userId) =>
       Array.from({length: 100}, () => {
         const title = chance.sentence({words: 3});
         const date = moment()
@@ -30,7 +30,7 @@ const getArticles = async knex => {
     .reduce((memo, arr) => memo.concat(arr), []);
 };
 
-exports.seed = async knex => {
+exports.seed = async (knex) => {
   const articles = await getArticles(knex);
   await knex('articles').del();
   await knex('articles').insert(articles);

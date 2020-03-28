@@ -5,7 +5,7 @@ const chance = require('chance').Chance('users-seed');
 const moment = require('moment');
 
 const getUsers = () =>
-  ['user-one', 'user-two'].map(username => ({
+  ['user-one', 'user-two'].map((username) => ({
     bio: chance.profession(),
     created_at: moment().toISOString(),
     email: chance.email(),
@@ -15,7 +15,7 @@ const getUsers = () =>
     username,
   }));
 
-exports.seed = async knex => {
+exports.seed = async (knex) => {
   await knex('users').del();
   await knex('users').insert(getUsers());
 };
