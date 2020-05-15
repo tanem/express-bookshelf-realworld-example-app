@@ -3,7 +3,7 @@
 const chance = require('chance').Chance('articles-seed');
 const moment = require('moment');
 const slug = require('slug');
-const uuidv4 = require('uuid/v4');
+const {v4: uuidv4} = require('uuid');
 
 const getArticles = async (knex) => {
   const userIds = await knex('users').pluck('id');
