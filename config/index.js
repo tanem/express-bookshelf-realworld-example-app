@@ -1,8 +1,11 @@
 'use strict';
 
 const convict = require('convict');
+const convict_format_with_validator = require('convict-format-with-validator')
 const fs = require('fs');
 const path = require('path');
+
+convict.addFormats(convict_format_with_validator);
 
 const config = convict({
   env: {
