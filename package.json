@@ -54,7 +54,7 @@
     "eslint-plugin-jest": "23.13.2",
     "eslint-plugin-prettier": "3.1.4",
     "jest": "26.0.1",
-    "moment": "2.26.0",
+    "moment": "2.27.0",
     "nodemon": "2.0.4",
     "prettier": "2.0.5",
     "rimraf": "3.0.2",
