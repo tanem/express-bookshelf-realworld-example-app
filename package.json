@@ -32,7 +32,7 @@
     "helmet": "4.0.0",
     "jsonwebtoken": "8.5.1",
     "knex": "0.21.4",
-    "lodash": "4.17.19",
+    "lodash": "4.17.20",
     "passport": "0.4.1",
     "passport-anonymous": "1.0.1",
     "passport-jwt": "4.0.0",
