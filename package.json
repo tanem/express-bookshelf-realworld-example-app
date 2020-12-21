@@ -31,7 +31,7 @@
     "express-pino-logger": "5.0.0",
     "helmet": "4.2.0",
     "jsonwebtoken": "8.5.1",
-    "knex": "0.21.13",
+    "knex": "0.21.14",
     "lodash": "4.17.20",
     "passport": "0.4.1",
     "passport-anonymous": "1.0.1",
