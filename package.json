@@ -58,7 +58,7 @@
     "nodemon": "2.0.7",
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
-    "supertest": "6.0.1"
+    "supertest": "6.1.1"
   },
   "jest": {
     "coverageDirectory": "<rootDir>/_coverage/",
