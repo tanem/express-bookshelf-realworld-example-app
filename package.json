@@ -28,7 +28,7 @@
     "cors": "2.8.5",
     "express": "4.17.1",
     "express-interceptor": "1.2.0",
-    "express-pino-logger": "5.0.0",
+    "express-pino-logger": "6.0.0",
     "helmet": "4.4.1",
     "jsonwebtoken": "8.5.1",
     "knex": "0.21.16",
