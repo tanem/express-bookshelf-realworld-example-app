@@ -38,7 +38,10 @@ const getArticleTags = (taggedArticles) => async (knex) => {
   const allTags = await knex('tags');
   return taggedArticles
     .map(({article, tags}) => {
-      return tags.map((tag) => [article, allTags.find(({name}) => name === tag).id]);
+      return tags.map((tag) => [
+        article,
+        allTags.find(({name}) => name === tag).id,
+      ]);
     })
     .reduce((memo, arr) => memo.concat(arr), [])
     .map(([article, tag]) => {
@@ -54,8 +57,6 @@ const getArticleTags = (taggedArticles) => async (knex) => {
     });
 };
 
-
-
 exports.seed = async (knex) => {
   const {tags, taggedArticles} = await getTags(knex);
   await knex('tags').del();
@@ -63,4 +64,4 @@ exports.seed = async (knex) => {
   const articleTags = await getArticleTags(taggedArticles)(knex);
   await knex('articles_tags').del();
   await knex('articles_tags').insert(articleTags);
-}
+};
