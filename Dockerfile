@@ -1,4 +1,4 @@
-FROM node:14.6.0
+FROM node:14.16.1
 
 RUN npm install --global npm
 
