@@ -4,13 +4,16 @@ services:
   node:
     environment:
       - CI
-      - COVERALLS_REPO_TOKEN
       - DB_NAME=realworld_test
+      - GITHUB_ACTIONS
+      - GITHUB_HEAD_REF
+      - GITHUB_REF
+      - GITHUB_REPOSITORY
+      - GITHUB_RUN_ID
+      - GITHUB_SHA
+      - GITHUB_WORKFLOW
       - NODE_ENV=test
       - PINO_LEVEL=silent
-      - TRAVIS
-      - TRAVIS_JOB_ID
-      - TRAVIS_PULL_REQUEST
   postgres:
     volumes:
       - test_data:/var/lib/postgresql/data

@@ -1,4 +1,6 @@
-FROM node:10.24.1
+FROM node:14.6.0
+
+RUN npm install --global npm
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

@@ -3,8 +3,9 @@
 set -e
 
 if [ "$CI" = true ]; then
+  npm run lint
   npx jest -i --coverage
-  cat ./_coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  bash <(curl -s https://codecov.io/bash)
 else
   npx jest -i "$@"
 fi
