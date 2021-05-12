@@ -1,6 +1,6 @@
-FROM node:16.1.0
+FROM node:14.16.1
 
-RUN npm install --global npm
+RUN npm install -g npm@latest
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

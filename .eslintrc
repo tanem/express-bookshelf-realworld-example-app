@@ -2,14 +2,8 @@
   "parserOptions": {
     "ecmaVersion": 2018
   },
-  "extends": [
-    "eslint:recommended",
-    "prettier"
-  ],
-  "plugins": [
-    "jest",
-    "prettier"
-  ],
+  "extends": ["eslint:recommended"],
+  "plugins": ["jest"],
   "env": {
     "node": true,
     "jest": true,
@@ -18,15 +12,5 @@
   "globals": {
     "any": false,
     "Promise": true
-  },
-  "rules": {
-    "prettier/prettier": ["error", {
-      "bracketSpacing": false,
-      "jsxBracketSameLine": true,
-      "parser": "flow",
-      "printWidth": 80,
-      "singleQuote": true,
-      "trailingComma": "all"
-    }]
   }
 }

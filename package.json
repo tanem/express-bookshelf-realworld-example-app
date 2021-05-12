@@ -6,6 +6,8 @@
   "author": "Tane Morgan (https://github.com/tanem)",
   "description": "RealWorld example app using Express and Bookshelf.",
   "scripts": {
+    "check:format": "prettier --list-different .",
+    "format": "prettier --write .",
     "lint": "eslint .",
     "test": "bin/test.sh",
     "start": "bin/start.sh",
@@ -50,13 +52,11 @@
     "chance": "1.1.7",
     "coveralls": "3.1.0",
     "eslint": "7.26.0",
-    "eslint-config-prettier": "8.3.0",
     "eslint-plugin-jest": "24.3.6",
-    "eslint-plugin-prettier": "3.4.0",
     "jest": "26.6.3",
     "moment": "2.29.1",
     "nodemon": "2.0.7",
-    "prettier": "2.2.1",
+    "prettier": "2.3.0",
     "rimraf": "3.0.2",
     "supertest": "6.1.3"
   },
