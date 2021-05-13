@@ -7,11 +7,11 @@
 
 ## Table of Contents
 
-* [Background](#background)
-* [Getting Started](#getting-started)
-* [Running Tests](#running-tests)
-* [Documentation](#documentation)
-* [License](#license)
+- [Background](#background)
+- [Getting Started](#getting-started)
+- [Running Tests](#running-tests)
+- [Documentation](#documentation)
+- [License](#license)
 
 ## Background
 
