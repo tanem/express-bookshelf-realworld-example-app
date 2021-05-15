@@ -17,7 +17,7 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
   postgres:
-    image: postgres:13.2
+    image: postgres:13.3
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=realworld
