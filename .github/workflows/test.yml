@@ -3,16 +3,7 @@ name: test
 
 # правила срабатывания - события GitHub, на которые
 # должен срабатывать текущий workflow.
-on:
-  # push
-  push:
-    # в ветку с именем main. Квадратные скобки нужны для указания
-    # нескольких веток, например, [main, developer]
-    branches: [main]
-  # при создании pull request
-  pull_request:
-    # в ветку main
-    branches: [main]
+on: [push]
 
 # workflow состоит из одной или нескольких job
 # job работают параллельно по умолчанию
