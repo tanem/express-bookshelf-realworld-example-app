@@ -1,4 +1,4 @@
-name: lint
+name: Lint and deploy
 
 on: push
 
@@ -14,10 +14,9 @@ jobs:
         env:
           cache-name: npm-${{ hashFiles('package-lock.json') }}
         with:
-          path: ~/.npm
+          path: .npm
           key: ${{ env.cache-name }}
-          restore-key: |
-            ${{ env.cache-name }}
+          restore-key: ${{ env.cache-name }}
       - name: Install dependencies
         run: npm install
       - name: Lint source code with ESLint
@@ -42,3 +41,24 @@ jobs:
         run: npm install
       - name: Lint source code with ESLint
         run: npm run check:format
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Copy files
+        run: |
+          rsync -a --progress --human-readable --delete \
+          --exclude-from '.gitignore' \
+          --exclude .gitignore \
+          --exclude .git \
+          . deploy@172.104.151.230:~/realworld/
+          ssh deploy@172.104.151.230 "pushd ~/realworld && npm install && pm2 restart realworld && popd"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNONN_HOSTS }}
