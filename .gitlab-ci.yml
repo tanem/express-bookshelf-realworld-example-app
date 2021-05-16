@@ -46,4 +46,4 @@ deploy:
       --exclude .gitignore
       --exclude .git
       . deploy@172.104.151.230:~/realworld/
-    - ssh deploy@172.104.151.230 "pushd ~/realworld && npm install && pm2 restart && popd"
+    - ssh deploy@172.104.151.230 "pushd ~/realworld && npm install && pm2 restart realworld && popd"
