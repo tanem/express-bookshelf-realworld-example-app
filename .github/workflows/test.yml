@@ -44,3 +44,32 @@ jobs:
       # Запуск ESLint
       - name: Lint source code with ESLint
         run: npm run lint
+  prettier:
+    # имя для отображения в интерфейсе GitHub
+    name: Prettier
+    # обязательный параметр, который указывает где будет запущена job: облачнный runner, self-hosted и т.д.
+    runs-on: ubuntu-latest
+    # последовательные задачи (шаги), важно помнить, что переменные окружения не сохраняются
+    # между шагами и их нужно пробрасывать, если требуется.
+    steps:
+      # указываем action, который будет запущен как часть job
+      # В текущем случае это клонирование репозитория
+      - uses: actions/checkout@v2
+      # Установка NVM
+      # имя для отображения в интерфейсе GitHub
+      - name: Install NVM
+        # команда для установки NVM из официального README.md NVM
+        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+      # Активируем NVM и устанавливаем нужную версию Node.js
+      - name: Install Node.js
+        # Мы ставим нужную версию в переменную окружения,
+        # которую NVM будет использовать
+        env:
+          NODE_VERSION: 14.17.0
+        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use && nvm install
+      # Установка зависимостей проекта
+      - name: Install dependencies
+        run: npm install
+      # Запуск ESLint
+      - name: Lint source code with Prettier
+        run: npm run check:format
