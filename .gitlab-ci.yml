@@ -1,6 +1,16 @@
 stages:
   - lint
 
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - .npm/
+
+before_script:
+  - npm ci --cache .npm --prefer-offline
+
 eslint:
   image: node:14.17.0-alpine
   stage: lint
