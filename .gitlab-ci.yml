@@ -35,7 +35,7 @@ deploy:
   image: ubuntu:latest
   stage: deploy
   script:
-    - apt -qq update && apt upgrade -qqy openssh-client
+    - apt -qq update && apt upgrade -qqy openssh-client rsync
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
