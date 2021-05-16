@@ -2,14 +2,14 @@ stages:
   - lint
 
 eslint:
-  image: 14.17.0-alpine
+  image: node:14.17.0-alpine
   stage: lint
   script:
     - npm install
     - npm run lint
 
 prettier:
-  image: 14.17.0-alpine
+  image: node:14.17.0-alpine
   stage: lint
   script:
     - npm install
