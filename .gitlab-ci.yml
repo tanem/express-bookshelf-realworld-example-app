@@ -9,10 +9,13 @@ cache:
   paths:
     - .npm/
 
-before_script:
-  - npm ci --cache .npm --prefer-offline
+.default-cache: &default-cache
+  before_script:
+    - npm ci --cache .npm --prefer-offline
 
 eslint:
+  extends:
+    - .default-cache
   image: node:14.17.0-alpine
   stage: lint
   script:
@@ -20,6 +23,8 @@ eslint:
     - npm run lint
 
 prettier:
+  extends:
+    - .default-cache
   image: node:14.17.0-alpine
   stage: lint
   script:
