@@ -1,0 +1,59 @@
+# имя нашего workflow. Используется исключительно для отображения в интерфейсе GitHub
+name: test
+
+# правила срабатывания - события GitHub, на которые
+# должен срабатывать текущий workflow.
+on:
+  # push
+  push:
+    # в ветку с именем main. Квадратные скобки нужны для указания
+    # нескольких веток, например, [main, developer]
+    branches: [main]
+  # при создании pull request
+  pull_request:
+    # в ветку main
+    branches: [main]
+
+# workflow состоит из одной или нескольких job
+# job работают параллельно по умолчанию
+jobs:
+  # название job, на которое можно ссылаться из других мест,
+  # например, когда нам нужно указать, что две jobs
+  # работают последовательно:
+  # jobs:
+  #   build:
+  #   eslint:
+  #     needs: build
+  eslint:
+    # имя для отображения в интерфейсе GitHub
+    name: ESLint
+    # обязательный параметр, который указывает где будет запущена job: облачнный runner, self-hosted и т.д.
+    runs-on: ubuntu-latest
+    # последовательные задачи (шаги), важно помнить, что переменные окружения не сохраняются
+    # между шагами и их нужно пробрасывать, если требуется.
+    steps:
+      # указываем action, который будет запущен как часть job
+      # В текущем случае это клонирование репозитория
+      - uses: actions/checkout@v2
+      # Установка NVM
+      # имя для отображения в интерфейсе GitHub
+      - name: Install NVM
+        # команда для установки NVM из официального README.md NVM
+        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+      # Активируем NVM
+      - name: Activate NVM
+        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+      # Устанавливаем нужную версию Node.js 14.17.0
+      - name: Install node.js
+        # Мы ставим нужную версию в переменную окружения,
+        # которую NVM будет использовать
+        env:
+          NODE_VERSION: 14.17.0
+        # запускаем NVM для установки Node.js
+        run: nvm install
+      # Установка зависимостей проекта
+      - name: Install dependencies
+        run: npm install
+      # Запуск ESLint
+      - name: Lint source code with ESLint
+        run: npm run eslint
