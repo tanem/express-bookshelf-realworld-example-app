@@ -9,6 +9,12 @@
   "lockFileMaintenance": {
     "enabled": true
   },
+  "packageRules": [
+    {
+      "matchPackageNames": ["knex"],
+      "allowedVersions": "< 0.22.0"
+    }
+  ],
   "prCreation": "not-pending",
   "stabilityDays": 3
 }
