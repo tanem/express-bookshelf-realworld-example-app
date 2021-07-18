@@ -24,7 +24,7 @@
     "bookshelf": "1.2.0",
     "bookshelf-virtuals-plugin": "1.0.0",
     "checkit": "0.7.0",
-    "convict": "6.1.0",
+    "convict": "6.2.0",
     "convict-format-with-validator": "6.0.1",
     "cookie-parser": "1.4.5",
     "cors": "2.8.5",
