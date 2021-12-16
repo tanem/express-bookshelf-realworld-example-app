@@ -44,7 +44,7 @@
     "pino-pretty": "7.2.0",
     "require-directory": "2.1.1",
     "serve-favicon": "2.5.0",
-    "slug": "5.1.0",
+    "slug": "5.1.1",
     "uuid": "8.3.2"
   },
   "devDependencies": {
