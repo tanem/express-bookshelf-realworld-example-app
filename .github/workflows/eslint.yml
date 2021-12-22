@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Lint source code with Prettier
-        run: npm run prettier
+        run: npm run check:format
   eslint:
     name: ESLint
     runs-on: ubuntu-latest
