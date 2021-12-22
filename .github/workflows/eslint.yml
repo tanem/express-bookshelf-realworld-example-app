@@ -18,6 +18,8 @@ jobs:
         env:
           NODE_VERSION: 14.17.0
         run: nvm install
+      - name: Activate NVM
+        run: export NVM_DIR="$HOME/.nvm" && \. "$NVM_DIR/nvm.sh"
       - name: Install dependencies
         run: npm install
       - name: Lint source code with ESLint
