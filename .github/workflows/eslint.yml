@@ -1,4 +1,4 @@
-name: Linting
+name: Lint
 
 on:
   push:
@@ -25,6 +25,7 @@ jobs:
       image: node:14.17.0-alpine
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies
         run: npm install
       - name: Lint source code with Prettier
         run: npm run check:format
