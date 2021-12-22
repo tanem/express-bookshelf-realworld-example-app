@@ -1,4 +1,4 @@
-name: lint
+name: Lint
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install NVM
-        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
       - name: Activate NVM
         run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
       - name: Install node.js
@@ -24,4 +24,3 @@ jobs:
         run: npm install
       - name: Lint source code with ESLint
         run: npm run eslint
-
