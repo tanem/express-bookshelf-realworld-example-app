@@ -1,4 +1,4 @@
-FROM node:17.7.2
+FROM node:17.8.0
 
 RUN npm install -g npm@latest
 
