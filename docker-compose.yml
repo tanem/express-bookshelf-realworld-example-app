@@ -14,8 +14,10 @@ services:
       - DB_USER=realworld
       - SECRET=secret
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - .:/home/node/app
+      - /home/node/app/node_modules
+      - /home/node/app/_coverage
+
   postgres:
     image: postgres:14.2
     environment:
