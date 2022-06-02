@@ -75,5 +75,8 @@
       "<rootDir>/test-support/setup-test-framework.js"
     ],
     "testEnvironment": "<rootDir>/test-support/test-environment.js"
+  },
+  "engines": {
+    "npm": ">=8.0.0"
   }
 }
