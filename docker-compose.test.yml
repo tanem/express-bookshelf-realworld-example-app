@@ -14,6 +14,7 @@ services:
       - GITHUB_WORKFLOW
       - NODE_ENV=test
       - PINO_LEVEL=silent
+    user: root
   postgres:
     volumes:
       - test_data:/var/lib/postgresql/data
