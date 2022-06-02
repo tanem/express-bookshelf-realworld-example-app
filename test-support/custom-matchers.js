@@ -3,7 +3,7 @@
 const {addMatchers} = require('add-matchers');
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
-const {isNumber} = require('lodash/fp');
+const isNumber = require('lodash/fp/isNumber');
 const config = require('../config');
 
 addMatchers.asymmetric({
