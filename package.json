@@ -52,7 +52,7 @@
     "chance": "1.1.8",
     "coveralls": "3.1.1",
     "eslint": "8.17.0",
-    "eslint-plugin-jest": "26.4.6",
+    "eslint-plugin-jest": "26.5.3",
     "jest": "28.1.0",
     "jest-environment-node": "28.1.0",
     "moment": "2.29.3",
