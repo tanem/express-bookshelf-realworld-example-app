@@ -55,7 +55,7 @@
     "eslint-plugin-jest": "26.5.3",
     "jest": "28.1.2",
     "jest-environment-node": "28.1.2",
-    "moment": "2.29.3",
+    "moment": "2.29.4",
     "nodemon": "2.0.19",
     "prettier": "2.7.1",
     "rimraf": "3.0.2",
