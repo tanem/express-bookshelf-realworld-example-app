@@ -39,7 +39,7 @@
     "passport-anonymous": "1.0.1",
     "passport-jwt": "4.0.0",
     "passport-local": "1.0.0",
-    "pg": "8.7.3",
+    "pg": "8.8.0",
     "pino": "8.4.2",
     "pino-pretty": "9.0.1",
     "require-directory": "2.1.1",
