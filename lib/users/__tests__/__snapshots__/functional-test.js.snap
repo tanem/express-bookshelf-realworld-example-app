@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`users GET /api/user when the user is not authenticated should return an unauthorized error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Unauthorized",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Unauthorized",
             "message": "Unauthorized",
             "statusCode": 401,
@@ -27,16 +27,16 @@ Object {
 `;
 
 exports[`users POST /api/users when the request body is invalid should return an unprocessable entity error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "email": Array [
+{
+  "body": {
+    "errors": {
+      "email": [
         "can't be blank",
       ],
-      "password": Array [
+      "password": [
         "can't be blank",
       ],
-      "username": Array [
+      "username": [
         "can't be blank",
       ],
     },
@@ -46,13 +46,13 @@ Object {
 `;
 
 exports[`users POST /api/users/login when the request body is invalid should return an unprocessable entity error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "email": Array [
+{
+  "body": {
+    "errors": {
+      "email": [
         "is invalid",
       ],
-      "password": Array [
+      "password": [
         "is invalid",
       ],
     },
@@ -62,17 +62,17 @@ Object {
 `;
 
 exports[`users PUT /api/user when the user is not authenticated should return an unauthorized error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Unauthorized",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Unauthorized",
             "message": "Unauthorized",
             "statusCode": 401,

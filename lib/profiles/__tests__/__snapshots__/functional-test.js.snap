@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`profiles GET /api/profiles/:username when the user is authenticated should return a user profile 1`] = `
-Object {
-  "body": Object {
-    "profile": Object {
+{
+  "body": {
+    "profile": {
       "bio": "Contract Administrator",
       "following": false,
       "image": "//www.gravatar.com/avatar/381695debd1a3738c5b4bb61d125ceb9",
@@ -15,9 +15,9 @@ Object {
 `;
 
 exports[`profiles GET /api/profiles/:username when the user is not authenticated should return a user profile 1`] = `
-Object {
-  "body": Object {
-    "profile": Object {
+{
+  "body": {
+    "profile": {
       "bio": "Interpreter",
       "following": false,
       "image": "//www.gravatar.com/avatar/bbd7b116dd01d6f12cb1b279a4625885",
@@ -29,17 +29,17 @@ Object {
 `;
 
 exports[`profiles GET /api/profiles/:username when the username is not found should return a not found error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Not Found",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Not Found",
             "message": "Not Found",
             "statusCode": 404,

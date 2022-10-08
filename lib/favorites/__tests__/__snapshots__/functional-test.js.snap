@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`favorites DELETE /api/articles/:slug/favorite when the user is authenticated and the article is not found should return a not found error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Not Found",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Not Found",
             "message": "Not Found",
             "statusCode": 404,
@@ -27,17 +27,17 @@ Object {
 `;
 
 exports[`favorites DELETE /api/articles/:slug/favorite when the user is not authenticated should return an unauthorized error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Unauthorized",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Unauthorized",
             "message": "Unauthorized",
             "statusCode": 401,
@@ -53,17 +53,17 @@ Object {
 `;
 
 exports[`favorites POST /api/articles/:slug/favorite when the user is authenticated and the article is not found should return a not found error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Not Found",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Not Found",
             "message": "Not Found",
             "statusCode": 404,
@@ -79,17 +79,17 @@ Object {
 `;
 
 exports[`favorites POST /api/articles/:slug/favorite when the user is not authenticated should return an unauthorized error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Unauthorized",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Unauthorized",
             "message": "Unauthorized",
             "statusCode": 401,
