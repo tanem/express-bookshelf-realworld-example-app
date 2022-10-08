@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is found and the user is not the comment author should return a forbidden error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Forbidden",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Forbidden",
             "message": "Forbidden",
             "statusCode": 403,
@@ -27,24 +27,24 @@ Object {
 `;
 
 exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is found and the user is the comment author should delete the article comment 1`] = `
-Object {
-  "body": Object {},
+{
+  "body": {},
   "status": 200,
 }
 `;
 
 exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is not found should return a not found error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Not Found",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Not Found",
             "message": "Not Found",
             "statusCode": 404,
@@ -60,17 +60,17 @@ Object {
 `;
 
 exports[`comments DELETE /api/articles/:slug/comments/:id when the user is not authenticated should return an unauthorized error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Unauthorized",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Unauthorized",
             "message": "Unauthorized",
             "statusCode": 401,
@@ -86,17 +86,17 @@ Object {
 `;
 
 exports[`comments GET /api/articles/:slug/comments when the slug is not found should return a not found error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Not Found",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Not Found",
             "message": "Not Found",
             "statusCode": 404,
@@ -112,10 +112,10 @@ Object {
 `;
 
 exports[`comments POST /api/articles/:slug/comments when the user is authenticated and invalid body params are passed should return an unprocessable entity error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "body": Array [
+{
+  "body": {
+    "errors": {
+      "body": [
         "can't be blank",
       ],
     },
@@ -125,17 +125,17 @@ Object {
 `;
 
 exports[`comments POST /api/articles/:slug/comments when the user is not authenticated should return an unauthorized error 1`] = `
-Object {
-  "body": Object {
-    "errors": Object {
-      "error": Object {
+{
+  "body": {
+    "errors": {
+      "error": {
         "data": null,
         "isBoom": true,
         "isServer": false,
         "message": "Unauthorized",
-        "output": Object {
-          "headers": Object {},
-          "payload": Object {
+        "output": {
+          "headers": {},
+          "payload": {
             "error": "Unauthorized",
             "message": "Unauthorized",
             "statusCode": 401,
