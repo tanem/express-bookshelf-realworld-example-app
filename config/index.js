@@ -58,19 +58,19 @@ const config = convict({
       database: {
         doc: 'Database name',
         format: String,
-        default: null,
+        default: "postgres",
         env: 'DB_NAME',
       },
       user: {
         doc: 'Database user',
         format: String,
-        default: null,
+        default: "postgres",
         env: 'DB_USER',
       },
       password: {
         doc: 'Database password',
         format: String,
-        default: null,
+        default: "psql",
         sensitive: true,
         env: 'DB_PASSWORD',
       },
@@ -90,7 +90,7 @@ const config = convict({
   secret: {
     doc: 'JWT secret',
     format: String,
-    default: null,
+    default: "foo",
     sensitive: true,
     env: 'SECRET',
   },

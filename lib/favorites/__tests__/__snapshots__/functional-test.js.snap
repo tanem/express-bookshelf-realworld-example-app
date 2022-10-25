@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`favorites DELETE /api/articles/:slug/favorite when the user is authenticated and the article is not found should return a not found error 1`] = `
+exports[`favorites DELETE /api/mappings/:slug/favorite when the user is authenticated and the mapping is not found should return a not found error 1`] = `
 {
   "body": {
     "errors": {
@@ -26,7 +26,7 @@ exports[`favorites DELETE /api/articles/:slug/favorite when the user is authenti
 }
 `;
 
-exports[`favorites DELETE /api/articles/:slug/favorite when the user is not authenticated should return an unauthorized error 1`] = `
+exports[`favorites DELETE /api/mappings/:slug/favorite when the user is not authenticated should return an unauthorized error 1`] = `
 {
   "body": {
     "errors": {
@@ -52,7 +52,7 @@ exports[`favorites DELETE /api/articles/:slug/favorite when the user is not auth
 }
 `;
 
-exports[`favorites POST /api/articles/:slug/favorite when the user is authenticated and the article is not found should return a not found error 1`] = `
+exports[`favorites POST /api/mappings/:slug/favorite when the user is authenticated and the mapping is not found should return a not found error 1`] = `
 {
   "body": {
     "errors": {
@@ -78,7 +78,7 @@ exports[`favorites POST /api/articles/:slug/favorite when the user is authentica
 }
 `;
 
-exports[`favorites POST /api/articles/:slug/favorite when the user is not authenticated should return an unauthorized error 1`] = `
+exports[`favorites POST /api/mappings/:slug/favorite when the user is not authenticated should return an unauthorized error 1`] = `
 {
   "body": {
     "errors": {

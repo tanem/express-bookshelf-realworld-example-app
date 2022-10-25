@@ -1,0 +1,266 @@
+exports[`mappings DELETE /api/mappings/:slug when the user is authenticated and the mapping is found and the user is not the mapping author should return a forbidden error 1`] = `
+{
+    "body": {
+        "errors": {
+            "error": {
+                "data": null,
+                "isBoom": true,
+                "isServer": false,
+                "message": "Forbidden",
+                "output": {
+                    "headers": {},
+                    "payload": {
+                        "error": "Forbidden",
+                        "message": "Forbidden",
+                        "statusCode": 403,
+                    },
+                    "statusCode": 403,
+                },
+            },
+            "message": "Forbidden",
+        },
+    },
+    "status": 403,
+}
+`;
+
+exports[`mappings DELETE /api/mappings/:slug when the user is authenticated and the mapping is found and the user is the mapping author should delete the mapping 1`] = `
+{
+  "body": {},
+  "status": 200,
+}
+`;
+
+exports[`mappings DELETE /api/mappings/:slug when the user is authenticated and the mapping is not found should return a not found error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
+exports[`mappings DELETE /api/mappings/:slug when the user is not authenticated should return an unauthorized error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Unauthorized",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Unauthorized",
+            "message": "Unauthorized",
+            "statusCode": 401,
+          },
+          "statusCode": 401,
+        },
+      },
+      "message": "Unauthorized",
+    },
+  },
+  "status": 401,
+}
+`;
+
+exports[`mappings GET /api/mappings/:slug when the user is authenticated and the mapping is not found should return a not found error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
+exports[`mappings GET /api/mappings/:slug when the user is not authenticated and the mapping is not found should return a not found error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
+exports[`mappings GET /api/mappings/feed when the user is not authenticated should return an unauthorized error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Unauthorized",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Unauthorized",
+            "message": "Unauthorized",
+            "statusCode": 401,
+          },
+          "statusCode": 401,
+        },
+      },
+      "message": "Unauthorized",
+    },
+  },
+  "status": 401,
+}
+`;
+
+exports[`mappings POST /api/mappings when the user is not authenticated should return an unauthorized error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Unauthorized",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Unauthorized",
+            "message": "Unauthorized",
+            "statusCode": 401,
+          },
+          "statusCode": 401,
+        },
+      },
+      "message": "Unauthorized",
+    },
+  },
+  "status": 401,
+}
+`;
+
+exports[`mappings PUT /api/mappings/:slug when the user is authenticated and the mapping is found and the user is not the mapping author should return a forbidden error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Forbidden",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Forbidden",
+            "message": "Forbidden",
+            "statusCode": 403,
+          },
+          "statusCode": 403,
+        },
+      },
+      "message": "Forbidden",
+    },
+  },
+  "status": 403,
+}
+`;
+
+exports[`mappings PUT /api/mappings/:slug when the user is authenticated and the mapping is not found should return a not found error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
+exports[`mappings PUT /api/mappings/:slug when the user is not authenticated should return an unauthorized error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Unauthorized",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Unauthorized",
+            "message": "Unauthorized",
+            "statusCode": 401,
+          },
+          "statusCode": 401,
+        },
+      },
+      "message": "Unauthorized",
+    },
+  },
+  "status": 401,
+}
+`;

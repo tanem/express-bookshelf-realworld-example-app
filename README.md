@@ -19,30 +19,32 @@ This project was created in order to familiarise myself with some key technologi
 
 ## Getting Started
 
-Ensure [Docker Compose](https://docs.docker.com/compose/install/) is installed, then:
+Ensure you have a local Postgres Instance up and running.
 
 1.  Clone this repo.
-2.  Change to the above dir.
-3.  Run `npm run docker:start` to start the app.
+2.  Inside /config/index.js , do the followings :
+    a. Enter string secret value.
+    b. Enter database, user and password.
+3.  Run `npm run start` to start the app.
 
 ## Running Tests
 
 Run the full test suite with:
 
 ```
-$ npm run docker:test
+$ npm run test
 ```
 
 CLI args will be passed through to Jest. For example, to run in watch mode:
 
 ```
-$ npm run docker:test --watch
+$ npm run test --watch
 ```
 
 This project also passes the [realworld-server-tester](https://github.com/agrison/realworld-server-tester) test suite. First start the server:
 
 ```
-$ npm run docker:start
+$ npm run start
 ```
 
 Then in a new terminal window, assuming you've cloned the `realworld-server-tester` repo and changed to the correct directory, run:
@@ -56,5 +58,5 @@ $ java -jar target/realworld-server-tester-0.1.0-SNAPSHOT-standalone.jar http://
 - [Docs](/docs/)
 
 ## License
+I do not own any liscence for this. I have no ownership or copywrite on this repo. I have cloned the repo from "https://github.com/tanem/express-bookshelf-realworld-example-app" and made changes as per my requisites.
 
-MIT

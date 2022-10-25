@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is found and the user is not the comment author should return a forbidden error 1`] = `
+exports[`comments DELETE /api/mappings/:slug/comments/:id when the user is authenticated and the comment is found and the user is not the comment author should return a forbidden error 1`] = `
 {
   "body": {
     "errors": {
@@ -26,14 +26,14 @@ exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authe
 }
 `;
 
-exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is found and the user is the comment author should delete the article comment 1`] = `
+exports[`comments DELETE /api/mappings/:slug/comments/:id when the user is authenticated and the comment is found and the user is the comment author should delete the mapping comment 1`] = `
 {
   "body": {},
   "status": 200,
 }
 `;
 
-exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authenticated and the comment is not found should return a not found error 1`] = `
+exports[`comments DELETE /api/mappings/:slug/comments/:id when the user is authenticated and the comment is not found should return a not found error 1`] = `
 {
   "body": {
     "errors": {
@@ -59,7 +59,7 @@ exports[`comments DELETE /api/articles/:slug/comments/:id when the user is authe
 }
 `;
 
-exports[`comments DELETE /api/articles/:slug/comments/:id when the user is not authenticated should return an unauthorized error 1`] = `
+exports[`comments DELETE /api/mappings/:slug/comments/:id when the user is not authenticated should return an unauthorized error 1`] = `
 {
   "body": {
     "errors": {
@@ -85,7 +85,7 @@ exports[`comments DELETE /api/articles/:slug/comments/:id when the user is not a
 }
 `;
 
-exports[`comments GET /api/articles/:slug/comments when the slug is not found should return a not found error 1`] = `
+exports[`comments GET /api/mappings/:slug/comments when the slug is not found should return a not found error 1`] = `
 {
   "body": {
     "errors": {
@@ -111,7 +111,7 @@ exports[`comments GET /api/articles/:slug/comments when the slug is not found sh
 }
 `;
 
-exports[`comments POST /api/articles/:slug/comments when the user is authenticated and invalid body params are passed should return an unprocessable entity error 1`] = `
+exports[`comments POST /api/mappings/:slug/comments when the user is authenticated and invalid body params are passed should return an unprocessable entity error 1`] = `
 {
   "body": {
     "errors": {
@@ -124,7 +124,7 @@ exports[`comments POST /api/articles/:slug/comments when the user is authenticat
 }
 `;
 
-exports[`comments POST /api/articles/:slug/comments when the user is not authenticated should return an unauthorized error 1`] = `
+exports[`comments POST /api/mappings/:slug/comments when the user is not authenticated should return an unauthorized error 1`] = `
 {
   "body": {
     "errors": {

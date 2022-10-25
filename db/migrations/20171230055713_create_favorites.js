@@ -10,11 +10,11 @@ exports.up = (knex) =>
       .references('users.id')
       .onDelete('CASCADE');
     table
-      .integer('article')
+      .integer('mapping')
       .notNullable()
-      .references('articles.id')
+      .references('mappings.id')
       .onDelete('CASCADE');
-    table.unique(['article', 'user']);
+    table.unique(['mapping', 'user']);
   });
 
 exports.down = (knex) => knex.schema.dropTableIfExists('favorites');

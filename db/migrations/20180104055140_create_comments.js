@@ -11,9 +11,9 @@ exports.up = (knex) =>
       .references('users.id')
       .onDelete('CASCADE');
     table
-      .integer('article')
+      .integer('mapping')
       .notNullable()
-      .references('articles.id')
+      .references('mappings.id')
       .onDelete('CASCADE');
   });
 

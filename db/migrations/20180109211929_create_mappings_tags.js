@@ -1,20 +1,20 @@
 'use strict';
 
 exports.up = (knex) =>
-  knex.schema.createTable('articles_tags', (table) => {
+  knex.schema.createTable('mappings_tags', (table) => {
     table.increments();
     table.timestamps();
     table
-      .integer('article')
+      .integer('mapping')
       .notNullable()
-      .references('articles.id')
+      .references('mappings.id')
       .onDelete('CASCADE');
     table
       .integer('tag')
       .notNullable()
       .references('tags.id')
       .onDelete('CASCADE');
-    table.unique(['article', 'tag']);
+    table.unique(['mapping', 'tag']);
   });
 
-exports.down = (knex) => knex.schema.dropTableIfExists('articles_tags');
+exports.down = (knex) => knex.schema.dropTableIfExists('mappings_tags');
