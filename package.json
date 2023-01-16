@@ -58,7 +58,7 @@
     "moment": "2.29.4",
     "nodemon": "2.0.20",
     "prettier": "2.8.2",
-    "rimraf": "3.0.2",
+    "rimraf": "4.0.4",
     "supertest": "6.3.3"
   },
   "jest": {
