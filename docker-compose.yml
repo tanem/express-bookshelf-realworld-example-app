@@ -19,7 +19,7 @@ services:
       - /home/node/app/_coverage
 
   postgres:
-    image: postgres:15.1
+    image: postgres:15.2
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=realworld
