@@ -40,7 +40,7 @@
     "passport-jwt": "4.0.1",
     "passport-local": "1.0.0",
     "pg": "8.9.0",
-    "pino": "8.9.0",
+    "pino": "8.10.0",
     "pino-pretty": "9.1.1",
     "require-directory": "2.1.1",
     "serve-favicon": "2.5.0",
