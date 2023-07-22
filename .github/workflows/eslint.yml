@@ -1,0 +1,23 @@
+name: eslint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest,
+    steps:
+      - uses: actions/checkout@v2
+      - name: install NVM
+        run: curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+      - name: install Node
+        env:
+          NODE_VERSION: 14.17.0
+        run: nvm install $NODE_VERSION
+      - name: install dependencies
+        run: npm i
+      - name: lint source code with ESLint
+        run: npm run lint
