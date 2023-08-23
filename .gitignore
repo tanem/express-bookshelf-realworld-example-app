@@ -4,3 +4,5 @@ TODO.md
 _coverage/
 config/environments/*.json
 node_modules/
+
+.history

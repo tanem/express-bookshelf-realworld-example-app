@@ -1,0 +1,26 @@
+
+name: eslint
+
+on: 
+    push: 
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+jobs: 
+    eslint:
+        runs-on: ubuntu-latest
+        steps:
+             - uses: actions/checkout@v2 # клонируем репу, используя гитхаб экшенс
+             - name: install nvm
+               run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+            - name: install nvm
+            env: 
+                NODE_VERSION: 14.17.0
+              run: nvm install $NODE_VERSION
+            - name: install dependencies
+              run: npm ci
+            - name: lint
+              run: npm run lint
+
+
