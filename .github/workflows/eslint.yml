@@ -19,7 +19,7 @@ jobs:
       - name: Install node
         env:
             NODE_VERSION: 14.17.0
-        run: nvm install $NODE_VERSION
+        run: bash "nvm install $NODE_VERSION"
       - name: Restore dependencies
         run: npm ci
       - name: Lint source code with eslint
