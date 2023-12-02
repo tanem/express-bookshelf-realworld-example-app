@@ -1,12 +1,10 @@
 name: eslint
-#sample workflow for the ci
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
   esLint:
@@ -16,13 +14,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Install nvm
         env:
-            DOWNLOAD_SOURCE: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh
-        run: curl -o- $DOWNLOAD_SOURCE | bash
-      - name: Install Node
+          INSTALLATION_URI: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh
+        run: curl -o- $INSTALLATION_URI | bash
+      - name: Install node
         env:
-            NODE_VERSION: 14.7.0
+            NODE_VERSION: 14.17.0
         run: nvm install $NODE_VERSION
       - name: Restore dependencies
         run: npm ci
-      - name: Lint source code with ESLint
+      - name: Lint source code with eslint
         run: npx eslint .
