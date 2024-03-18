@@ -35,7 +35,7 @@
     "jsonwebtoken": "9.0.0",
     "knex": "0.21.21",
     "lodash": "4.17.21",
-    "passport": "0.6.0",
+    "passport": "0.7.0",
     "passport-anonymous": "1.0.1",
     "passport-jwt": "4.0.1",
     "passport-local": "1.0.0",
