@@ -1,0 +1,27 @@
+# Объявляем stage-ы для pipeline в самом верху. Они выполняются последовательно.
+stages:
+  - lint
+
+eslint: # Название job-ы
+  stage: lint # Указываем stage, на котором будет запускаться эта job-а
+  variables: # Указываем переменные окружения. В отличие от GitHub, в GitLab они являются постоянными для всей job-ы.
+    NODE_VERSION: 14.17.0
+  script: # Шаги, которые будут выполняться
+    # Команда для установки NVM из официального README.md NVM
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    # Запуск NVM для установки NodeJS
+    - nvm install $NODE_VERSION
+    # Установка зависимостей
+    - npm ci
+    # Lint исходного кода
+    - npm run lint
+
+prettier:
+  stage: lint
+  variables:
+    NODE_VERSION: 14.17.0
+  script:
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    - nvm install $NODE_VERSION
+    - npm ci
+    - npm run check:format
