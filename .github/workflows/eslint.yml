@@ -1,0 +1,32 @@
+name: eslint  # Имя workflow для отображения в UI GitHub
+
+on:  # Отрабатывает при триггерах:
+  push:
+    branches: [main]  # Если убрать условие branches, то отработает на push в любую ветку
+  pull_request:
+    branches: [main]  # В квадратных скобках можно указать несколько веток
+
+# Workflow состоит из одной или нескольких job, работающих параллельно по умолчанию
+jobs:  # Описываем job-ы
+  eslint:  # Название job-ы, на которое можно ссылаться (например, в другой job-e: needs: eslint)
+    runs-on: ubuntu-latest  # Описываем окружение (имя docker-образа, на котором будет запускаться)
+    steps:  # Шаги (переменные окружения не сохраняются между шагами и их нужно пробрасывать, если требуется)
+      - uses: actions/checkout@v2  # Используем общий github action для клонирования нашего репозитория
+
+      # Устанавливаем NVM
+      - name: Install NVM  # Имя для отображения в UI GitHub
+        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash  # Команда для установки NVM из официального README.md NVM
+
+      # Устанавливаем NodeJS
+      - name: Install NodeJS
+        env:  # Объявление переменных окружения
+          NODE_VERSION: 14.17.0  # Версия NodeJS в переменной окружения, которую NVM будет использовать
+        run: nvm install $NODE_VERSION  # Запуск NVM для установки NodeJS
+      
+      # Установка зависимостей
+      - name: Install dependencies
+        run: npm ci
+
+      # Lint исходного кода
+      - name: Lint source code with ESLint
+        run: npm run lint
