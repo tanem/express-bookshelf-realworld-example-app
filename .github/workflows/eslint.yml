@@ -17,12 +17,16 @@ jobs:  # Описываем job-ы
       - name: Install NVM  # Имя для отображения в UI GitHub
         run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash  # Команда для установки NVM из официального README.md NVM
 
-      # Активируем и устанавливаем NodeJS 
+      # Активируем NVM
+      - name: Activate NVM
+        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+
+      # Устанавливаем NodeJS 
       - name: Install NodeJS
         env:  # Объявление переменных окружения
           NODE_VERSION: 14.17.0  # Версия NodeJS в переменной окружения, которую NVM будет использовать
-        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use && nvm install $NODE_VERSION  # Запуск NVM для установки NodeJS
-      
+        run: nvm install $NODE_VERSION  # Запуск NVM для установки NodeJS
+
       # Установка зависимостей
       - name: Install dependencies
         run: npm ci
