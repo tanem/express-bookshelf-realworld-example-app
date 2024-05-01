@@ -47,14 +47,16 @@ prettier:
 # повторяющиеся действия, но и ускорим наш pipeline за счет удаления установки Node
 # /--------------------------------------------------/
 
-eslint-with-image:
+# Job-а для eslint с рефакторинг-ом
+eslint-with-node-image:
   image: node:14.17.0-alpine # Указываем нужный Docker образ
   stage: lint
   script:
     - npm install
     - npm run lint
 
-prettier-with-image:
+# Job-а для prettier с рефакторинг-ом
+prettier-with-node-image:
   image: node:14.17.0-alpine
   stage: lint
   script:
