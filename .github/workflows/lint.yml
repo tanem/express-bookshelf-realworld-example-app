@@ -67,3 +67,57 @@ jobs: # Описываем job-ы
         run: npm install
       - name: Check format source code with prettier
         run: npm run check:format
+
+  # Job-а для создания кэша
+  # Job-ы в GitHub actions работают параллельно, и если бы мы написали без job-ы build,
+  # то ключ кэширования использовался бы сразу в двух job-ах (eslint-with-cache и prettier-with-cache)
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.17.0-alpine
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node_modules
+        uses: actions/cache@v2 # GitHub action для кэша
+        with: # Передаем параметры
+          path: ~/.npm # Путь, что кэшировать (~/ - домашняя директория)
+          key: npm-${{ hashFiles('package-lock.json') }} # Ключ кэширования (хеш)
+          restore-keys: npm- # Ключ для восстановления кэша
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+  eslint-with-cache:
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.17.0-alpine
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node_modules
+        uses: actions/cache@v2 # GitHub action для кэша
+        with: # Передаем параметры
+          path: ~/.npm # Путь, что кэшировать (~/ - домашняя директория)
+          key: npm-${{ hashFiles('package-lock.json') }} # Ключ кэширования (хеш)
+          restore-keys: npm- # Ключ для восстановления кэша
+      - name: Install dependencies
+        run: npm install
+      - name: Lint source code with ESLint
+        run: npm run lint
+
+  prettier-with-cache:
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.17.0-alpine
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node_modules
+        uses: actions/cache@v2 # GitHub action для кэша
+        with: # Передаем параметры
+          path: ~/.npm # Путь, что кэшировать (~/ - домашняя директория)
+          key: npm-${{ hashFiles('package-lock.json') }} # Ключ кэширования (хеш)
+          restore-keys: npm- # Ключ для восстановления кэша
+      - name: Install dependencies
+        run: npm install
+      - name: Check format source code with prettier
+        run: npm run check:format
