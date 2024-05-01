@@ -1,4 +1,4 @@
-name: eslint # Имя workflow для отображения в UI GitHub
+name: lint # Имя workflow для отображения в UI GitHub
 
 on: # Отрабатывает при триггерах:
   push:
@@ -30,3 +30,36 @@ jobs: # Описываем job-ы
       # Lint исходного кода
       - name: Lint source code with ESLint
         run: npm run lint
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install NVM
+        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+      - name: Install NodeJS
+        env:
+          NODE_VERSION: 14.17.0
+        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use && nvm install $NODE_VERSION
+      - name: Install dependencies
+        run: npm ci
+      - name: Check format source code with prettier
+        run: npm run check:format
+
+  eslint-with-node-image:
+    runs-on: node:14.17.0-alpine
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Check format source code with prettier
+        run: npm run check:format
+
+  prettier-with-node-image:
+    runs-on: node:14.17.0-alpine
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Check format source code with prettier
+        run: npm run check:format
