@@ -69,8 +69,10 @@ jobs: # Описываем job-ы
         run: npm run check:format
 
   # Job-а для создания кэша
+  # /--------------------------------------------------/
   # Job-ы в GitHub actions работают параллельно, и если бы мы написали без job-ы build,
   # то ключ кэширования использовался бы сразу в двух job-ах (eslint-with-cache и prettier-with-cache)
+  # /--------------------------------------------------/
   build:
     runs-on: ubuntu-latest
     container:
