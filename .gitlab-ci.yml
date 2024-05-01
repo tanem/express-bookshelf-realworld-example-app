@@ -10,9 +10,9 @@ eslint: # Название job-ы
     # Команда для установки NVM из официального README.md NVM
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
     # Запуск NVM для установки NodeJS
-    - nvm install $NODE_VERSION
+    - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use && nvm install $NODE_VERSION
     # Установка зависимостей
-    - npm ci
+    - npm install
     # Lint исходного кода
     - npm run lint
 
@@ -22,6 +22,6 @@ prettier:
     NODE_VERSION: 14.17.0
   script:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-    - nvm install $NODE_VERSION
-    - npm ci
+    - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use && nvm install $NODE_VERSION
+    - npm install
     - npm run check:format
