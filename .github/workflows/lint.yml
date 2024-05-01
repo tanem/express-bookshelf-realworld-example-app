@@ -9,7 +9,7 @@ on: # Отрабатывает при триггерах:
 # Workflow состоит из одной или нескольких job, работающих параллельно по умолчанию
 jobs: # Описываем job-ы
   eslint: # Название job-ы, на которое можно ссылаться (например, в другой job-e: needs: eslint)
-    runs-on: ubuntu-latest # Описываем окружение (имя docker-образа, на котором будет запускаться)
+    runs-on: ubuntu-latest # обязательный параметр, который указывает где будет запущена job: облачный runner, self-hosted и т.д.
     steps: # Шаги (переменные окружения не сохраняются между шагами и их нужно пробрасывать, если требуется)
       - uses: actions/checkout@v2 # Используем общий github action для клонирования нашего репозитория
 
@@ -47,16 +47,20 @@ jobs: # Описываем job-ы
         run: npm run check:format
 
   eslint-with-node-image:
-    runs-on: node:14.17.0-alpine
+    runs-on: ubuntu-latest
+    container: # укажем, что для этой job-ы нам нужен специальный контейнер
+      image: node:14.17.0-alpine # возьмем Docker образ Node.js из публичного реестра
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: npm ci
-      - name: Check format source code with prettier
-        run: npm run check:format
+      - name: Lint source code with ESLint
+        run: npm run lint
 
   prettier-with-node-image:
-    runs-on: node:14.17.0-alpine
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.17.0-alpine
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
