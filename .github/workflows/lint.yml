@@ -9,7 +9,7 @@ on: # Отрабатывает при триггерах:
 # Workflow состоит из одной или нескольких job, работающих параллельно по умолчанию
 jobs: # Описываем job-ы
   eslint: # Название job-ы, на которое можно ссылаться (например, в другой job-e: needs: eslint)
-    runs-on: ubuntu-latest # обязательный параметр, который указывает где будет запущена job: облачный runner, self-hosted и т.д.
+    runs-on: ubuntu-latest # Обязательный параметр, который указывает где будет запущена job: облачный runner, self-hosted и т.д.
     steps: # Шаги (переменные окружения не сохраняются между шагами и их нужно пробрасывать, если требуется)
       - uses: actions/checkout@v2 # Используем общий github action для клонирования нашего репозитория
 
@@ -48,8 +48,8 @@ jobs: # Описываем job-ы
 
   eslint-with-node-image:
     runs-on: ubuntu-latest
-    container: # укажем, что для этой job-ы нам нужен специальный контейнер
-      image: node:14.17.0-alpine # возьмем Docker образ Node.js из публичного реестра
+    container: # Укажем, что для этой job-ы нам нужен специальный контейнер
+      image: node:14.17.0-alpine # Возьмем Docker образ NodeJS из публичного реестра
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
