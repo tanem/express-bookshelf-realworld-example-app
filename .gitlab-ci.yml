@@ -2,6 +2,12 @@
 stages:
   - lint
 
+# Job-а для eslint
+# /--------------------------------------------------/
+# 1.Вопрос: Зачем NVM, если мы внутри Docker (GitLab CI запускается в дефолтном Docker с ruby)?
+# 1.Ответ: В нашем контейнере нету NodeJS, а самый быстрый способ поставить туда его - NVM
+# /--------------------------------------------------/
+
 eslint: # Название job-ы
   stage: lint # Указываем stage, на котором будет запускаться эта job-а
   variables: # Указываем переменные окружения. В отличие от GitHub, в GitLab они являются постоянными для всей job-ы.
@@ -16,6 +22,7 @@ eslint: # Название job-ы
     # Lint исходного кода
     - npm run lint
 
+# Job-а для prettier
 prettier:
   stage: lint
   variables:
@@ -23,5 +30,33 @@ prettier:
   script:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
     - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use && nvm install $NODE_VERSION
+    - npm install
+    - npm run check:format
+
+# /--------------------------------------------------/
+# Наш запускает и на нашем коде и все хорошо,
+# но скорость CI ESLint Prettier выполнения нашего pipeline оставляет желать лучшего.
+#
+# Если посмотреть на них то в глаза бросается,
+# что для обоих инструментов мы выполняем практически идентичные действия:
+# 1. Установка NVM
+# 2. Установка NodeJS
+# 3. Установка зависимостей
+#
+# Проведем небольшой рефакторинг и не только уберем эти
+# повторяющиеся действия, но и ускорим наш pipeline за счет удаления установки Node
+# /--------------------------------------------------/
+
+eslint-with-image:
+  image: node:14.17.0-alpine # Указываем нужный Docker образ
+  stage: lint
+  script:
+    - npm install
+    - npm run lint
+
+prettier-with-image:
+  image: node:14.17.0-alpine
+  stage: lint
+  script:
     - npm install
     - npm run check:format
