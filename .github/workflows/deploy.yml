@@ -1,0 +1,45 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+
+  # Специальное событие, которое происходит при ручном вызове workflow
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup SSH
+        run: |
+          # создаем директорию для ключа
+          mkdir -p ~/.ssh
+          # выводим содержимое нашей переменной окружения в файл
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          # ставим нужные безопасные права
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
+          # Добавляем отпечаток сервера
+          echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Copy files to the server
+        run: |
+          rsync -a --progress --human-readable --delete \
+          # исключить все, что есть в .gitignore
+          --exclude-from '.gitignore' \
+          # не загружаем .gitignore
+          --exclude .gitignore \
+          # не загружаем .git
+          --exclude .git \
+          # Не удаляем директорию с нашим фронтендом
+          --exclude public \
+          . deploy@172.104.151.230:~/realworld/
+      # job для перезапуска приложения при помощи pm2
+      - name: Restart the application
+        run: |
+          ssh deploy@172.104.151.230 "pushd ~/realworld && npm install
+          && popd && pm2 restart ecosystem.config.js"

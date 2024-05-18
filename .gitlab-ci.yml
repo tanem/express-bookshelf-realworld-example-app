@@ -1,6 +1,7 @@
 # Объявляем stage-ы для pipeline в самом верху. Они выполняются последовательно.
 stages:
   - lint
+  - deploy
 
 # Job-а для eslint
 # /--------------------------------------------------/
@@ -89,25 +90,54 @@ cache: # Определим кэширование
     - .npm/
 
 # Секция для подготовки кэша (можно объявить вверху, а можно в job-ах)
-# before_script: # Перед всеми job-ами
-#   - npm install --cache .npm --prefer-offline # Все зависимости ставим в папку .npm и используем версии из кэша
+.default-cache: &default-cache # Якори в yaml
+  before_script: # Перед всеми job-ами
+    - npm install --cache .npm --prefer-offline # Все зависимости ставим в папку .npm и используем версии из кэша
 
 # Job-а для eslint с кэшом
 eslint-with-cache:
+  extends: # Чтобы использовать кэш
+    - .default-cache
   image: node:14.17.0-alpine # Указываем нужный Docker образ
   stage: lint
-  before_script: # Перед всеми job-ами
-    - npm install --cache .npm --prefer-offline # Все зависимости ставим в папку .npm и используем версии из кэша
+  # before_script:
+  #   - npm install --cache .npm --prefer-offline # Все зависимости ставим в папку .npm и используем версии из кэша
   script:
     - npm install
     - npm run lint
 
 # Job-а для prettier с кэшом
 prettier-with-cache:
+  extends: # Чтобы использовать кэш
+    - .default-cache
   image: node:14.17.0-alpine
   stage: lint
-  before_script: # Перед всеми job-ами
-    - npm install --cache .npm --prefer-offline # Все зависимости ставим в папку .npm и используем версии из кэша
+  # before_script:
+  #   - npm install --cache .npm --prefer-offline # Все зависимости ставим в папку .npm и используем версии из кэша
   script:
     - npm install
     - npm run check:format
+
+deploy:
+  image: ubuntu:latest
+  stage: deploy
+  script:
+    - apt -qq update && apt upgrade -qqy openssh-client rsync
+    # Проверяем и получаем переменную для ssh агента
+    - eval $(ssh-agent -s)
+    # Берем ключ, удаляем у него ненужные переводы строк и добавляем в наш агент, чтобы он был доступен
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    # Создаем директорию для ключа, чтобы ssh не ругался
+    - mkdir -p ~/.ssh
+    # Даем безопасные права доступа
+    - chmod 700 ~/.ssh
+    # Добавляем SSH_KNOWN_HOSTS
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - rsync -a --progress --human-readable --delete
+      --exclude-from '.gitignore'
+      --exclude .gitignore
+      --exclude .git
+      . deploy@188.225.32.172:~/realworld
+    # Скопируем все, что есть, при помощи команды scp - копирование на удаленный сервер при помощи ssh
+    # pushd - перейти в директорию и добавить в стек директорий, popd - извлечь из стека и перейти к следующей директории
+    - ssh deploy@188.225.32.172 "pushd ~/realworld && npm install && pm2 restart realworld && popd"
