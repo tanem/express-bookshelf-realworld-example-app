@@ -57,7 +57,7 @@
     "jest-environment-node": "29.5.0",
     "moment": "2.29.4",
     "nodemon": "2.0.21",
-    "prettier": "2.8.4",
+    "prettier": "2.8.8",
     "rimraf": "4.4.0",
     "supertest": "6.3.3"
   },
