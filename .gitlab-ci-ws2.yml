@@ -1,0 +1,217 @@
+stages:
+  - test
+  - deploy
+  - review
+
+# Задаем дефолтные настройки для всех stage-ей и всех job
+default:
+  image: node:14.17.0-alpine
+  cache: # Определим кэширование
+    key: # Ключ кэширования (им может быть что угодно: название ветки, хеш коммита)
+      files: # Файл или файлы
+        - package-lock.json # Наш lock-файл с зависимостями
+    paths: # Что кешировать
+      - .npm/
+  before_script:
+    - npm install --cache .npm --prefer-offline # Все зависимости ставим в папку .npm и используем версии из кэша
+
+# Создадим скрытую job-у для настройки SSH доступа
+# Такие job-ы удобно использовать, если мы хотим написать какую-то общую логику,
+# которую хотим потом переиспользовать на других job-ах
+.setup_ssh:
+  before_script:
+    # Если не запущен ssh агент, то его просто ставим
+    # apk - это пакетный менеджер для alpine
+    - 'which ssh-agent || (apk add --update openssh curl bash git)'
+    # Запускаем ssh агент, если не был запущен или мы его установили с нуля
+    - eval $(ssh-agent -s)
+    # Берем ключ, удаляем у него ненужные переводы строк и добавляем в наш агент, чтобы он был доступен
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    # Создаем директорию для ключа, чтобы ssh не ругался
+    - mkdir -p ~/.ssh
+    # Даем безопасные права доступа
+    - chmod 700 ~/.ssh
+    # Добавляем SSH_KNOWN_HOSTS
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+lint:
+  stage: test
+  script:
+    - npm install
+    - npm run lint
+    - npm run check:format
+
+# Будем деплоить с помощью pm2, чтобы не было больших кусков кода как в ws1
+deploy:
+  # Якоря работают на уровне языке yaml, а extends на уровне gitlab ci
+  # extends не поддерживает наследование массивов:
+  # если бы в .setup_ssh был бы script, а не before_script, то script в этой job-е перезаписал бы его
+  extends:
+    - .setup_ssh
+  stage: deploy
+  variables:
+    # pm2 deploy делает полное клонирование репозитория на сервере и потом при помощи symlink делает релизы
+    # И нам нужно передать ссылку, по которой клонировать репозиторий
+    # В gitlab ci уже есть переменная, которая содержит ссылку на репозиторий, причем уже с токеном,
+    # при помощи которого можно его склонировать. Но этот токен относится к runner-у и живет, пока жив runner
+    # То есть все деплои, начиная со второго, будут падать
+    REPOSITORY_URL: 'git@gitlab.com:k0ct9lHbl4/express-bookshelf-realworld-example-app.git'
+    # Передаем pm2 для клонирования определенной ветки
+    # $CI_COMMIT_REF_NAME - gitlab ci переменная, которая содержит имя ветки, на которой работает pipeline
+    DEPLOY_BRANCH: $CI_COMMIT_REF_NAME
+    # Путь на удаленном сервере, куда развернуть приложение
+    # $CI_COMMIT_REF - специальная переменная, встроенная в gitlab ci, содержит название branch-а
+    # $CI_COMMIT_REF_SLUG - содержит то же самое название branch-а,
+    # в котором убраны или заменены специальные символы, которые могут быть не валидными для названия директории
+    DEPLOY_DIST: '/home/deploy/app/$CI_COMMIT_REF_SLUG'
+    # Название БД
+    DB_NAME: $CI_COMMIT_REF_SLUG
+  script:
+    # Так как мы будем использовать pm2 для развертывания, то нужно поставить его глобально
+    - npm i -g pm2
+    # Если будет первый деплой из данной ветки, то приложение нужно будет настроить
+    # У pm2 для этого есть специальная команда, которая называется production setup,
+    # и нам нужно будет ее запустить, чтобы pm2 создал нам окружение на удаленном сервере
+    # Но проблема в том, что pm2 упадет с ошибкой, если нашей директории DEPLOY_DIST не будет там
+    # Или если у нас будет повторный деплой, то эта команда нам не нужна
+    # Поэтому проверим наличие DEPLOY_DIST на сервере и, если директория есть,
+    # то мы ничего не делаем, иначе запускаем pm2 с ключами для настройки окружения production setup
+    - ssh -q $SSH_USER@$SSH_HOST [[ ! -d "$DEPLOY_DIST" ]] && pm2 deploy ecosystem.config.js production setup
+    # | - многострочный элемент в yaml, используем для читабельности
+    # >> - добавить в конец, > - перезаписать все, что есть в файле
+    # Нам нужно передать переменные окружения, необходимые для работы нашего приложения
+    # Так как у нас в приложении есть поддержка файлов .env, создадим на сервере этот файл
+    - |
+      ssh -q $SSH_USER@$SSH_HOST <<EOF
+        echo "DB_NAME=$DB_NAME" > $DEPLOY_DIST/.env
+        echo "DB_USER=$DB_USER" >> $DEPLOY_DIST/.env
+        echo "DB_PASSWORD=$DB_PASSWORD" >> $DEPLOY_DIST/.env
+        echo "SECRET=$SECRET" >> $DEPLOY_DIST/.env
+      EOF
+    # Запускаем pm2 для развертывания
+    - pm2 deploy ecosystem.config.js production --update-env
+  # GitLab поддерживает окружения (production и staging), при помощи которых мы можем сообщать команде
+  # о развертывании нового окружения или его обновлении и управлять ими. Чтобы включить их,
+  # нужно определить окружение при помощи ключа environment.
+  # Часть интерфейса, где можно посмотреть, какие окружения сейчас есть, в которых работает приложение
+  # и можно перейти на них сразу из GitLab
+  environment:
+    name: production
+    url: http://$CI_COMMIT_REF_SLUG.$APP_HOST/
+  # Очень мощный инструмент
+  # Читается сверху вниз, и если в if правило true, то остальные правила отсекаются и job-а попадает в pipeline
+  # Поэтому, если хотим, чтобы по условию job-а не попадала в pipeline, ее лучше ставить на первое место
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'main'
+      # when: never # Если хотим, чтобы деплой не запускался для main
+
+create_review_app:
+  extends:
+    - .setup_ssh
+  stage: review
+  variables:
+    REPOSITORY_URL: 'git@gitlab.com:k0ct9lHbl4/express-bookshelf-realworld-example-app.git'
+    DEPLOY_BRANCH: $CI_COMMIT_REF_NAME
+    DEPLOY_DIST: '/home/deploy/app/$CI_COMMIT_REF_SLUG'
+    DB_NAME: $CI_COMMIT_REF_SLUG
+    # Если по этой ссылке сделать HEAD запрос, то ответом в качестве статус-кода будет наличие или отсутствие ветки:
+    # 404 - если ветки нет, 204 - если ветка есть
+    BRANCH_EXIST_URL: 'https://gitlab.com/api/v4/projects/$FRONTEND_PROJECT_ID/repository/branches/$CI_COMMIT_REF_NAME'
+    # api для создания ветки
+    # branch= - название ветки
+    # ref= - из какой ветки делать
+    # $CI_DEFAULT_BRANCH - встроенная переменная, название default ветки (main или master)
+    CREATE_BRANCH_URL: 'https://gitlab.com/api/v4/projects/$FRONTEND_PROJECT_ID/repository/branches?branch=$CI_COMMIT_REF_NAME&ref=$CI_DEFAULT_BRANCH'
+    TRIGGER_PIPELINE_URL: 'https://gitlab.com/api/v4/projects/$FRONTEND_PROJECT_ID/pipeline?ref=$CI_COMMIT_REF_NAME'
+  script:
+    - npm i -g pm2
+    - ssh -q $SSH_USER@$SSH_HOST [[ ! -d "$DEPLOY_DIST" ]] && pm2 deploy ecosystem.config.js production setup
+    - |
+      ssh -q $SSH_USER@$SSH_HOST <<EOF
+        echo "DB_NAME=$DB_NAME" > $DEPLOY_DIST/.env
+        echo "DB_USER=$DB_USER" >> $DEPLOY_DIST/.env
+        echo "DB_PASSWORD=$DB_PASSWORD" >> $DEPLOY_DIST/.env
+        echo "SECRET=$SECRET" >> $DEPLOY_DIST/.env
+      EOF
+    - pm2 deploy ecosystem.config.js production --update-env
+    # Для корректного функционирования review_app нужны данные.
+    # Воспользуемся скриптом для создания копии БД с заданным именем
+    - ssh -q $SSH_USER@$SSH_HOST "$DEPLOY_DIST/current/bin/create-db-copy $DB_PASSWORD $DB_NAME"
+    # Запускаем приложение
+    - ssh -q $SSH_USER@$SSH_HOST "cd $DEPLOY_DIST/current && env DB_NAME=$DB_NAME pm2 start ecosystem.config.js --env production --update-env"
+    # Допустим, мы делаем MR из ветки testing. Backend задеплоится в testing
+    # Но нам нужно задеплоить еще и frontend. Мы должны деплоить frontend из той же ветки, из которой мы делали MR
+    # То есть, если для backend это testing, то и на frontend-е мы должны запустить деплой для ветки testing
+    # Если ветки testing нет, то мы должны задеплоить frontend из главной ветки main. И наоборот
+
+    # Делаем HEAD запрос через curl (-I означает HEAD запрос), результат которого сохраняем в переменную status_code
+    # Так как репозиторий может быть приватным, нам нужно пройти аутентификацию (добавляем заголовок в виде токен)
+    # Выводим только http код (--write-out "%{http_code}")
+    # Никакого вывода нам не надо (--silent)
+    # Если вывод какой-то есть, то уберем его в /dev/null (по сути, в корзину)
+    - 'status_code=$(curl -I --header "PRIVATE-TOKEN: $PAT_TOKEN" --write-out "%{http_code}" --silent --output /dev/null "$BRANCH_EXISTS_URL")'
+    # Если переменная status_code не равна 204 (ветки нет), создаем ветку c помощью POST запроса через curl
+    - '[[ "$status_code" -ne 204 ]] && status_code=$(curl -X POST --header "PRIVATE-TOKEN: $PAT_TOKEN" --write-out "%{http_code}" --silent --output /dev/null "$CREATE_BRANCH_URL")'
+    # 400 возвращается, если ветка, которую хотим создать, уже есть
+    # Если вернулось 400, то выводим, что ветка уже существует, и говорим, что все ок, возвращая код выхода 0
+    - '[[ "$status_code" -ne 400 ]] && echo "Branch already exists" && exit 0'
+    # Мы знаем, что ветка есть, и теперь дергаем создание pipeline для нужной нам ветки
+    - 'curl -X POST --header "PRIVATE-TOKEN: $PAT_TOKEN" --write-out "%{http_code}" --silent --output /dev/null "$TRIGGER_PIPELINE_URL"'
+  # Если мы будем создавать review app на каждый merge request,
+  # то рано или поздно у нас просто закончатся ресурсы на сервере
+  # Для этого нам нужно указать что окружение можно освобождать
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: http://$CI_COMMIT_REF_SLUG.$APP_HOST/
+    on_stop: stop_review # название job для запуска при остановке
+  # Запускаем job только когда pipeline был вызван merge request-ом
+  rules:
+    # Если название MR содержит SKIP REVIEW, то job-у пропускаем
+    - if: '$CI_MERGE_REQUEST_TITLE =~ /SKIP REVIEW/'
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+stop_review:
+  stage: review
+  extends:
+    - .setup_ssh
+  variables:
+    DEPLOY_DIST: '/home/deploy/app/$CI_COMMIT_REF_SLUG'
+  script:
+    # Заходим на сервер по ssh и удаляем (не физически) приложение с помощью pm2
+    # Можно еще удалять директорию сразу
+    - |
+      ssh -q $SSH_USER@$SSH_HOST <<EOF
+        cd $DEPLOY_DIST/current
+        pm2 delete ecosystem.config.js
+      EOF
+  # Указываем имя приложения для остановки review_app
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    action: stop
+  rules:
+    # Если название MR содержит SKIP REVIEW, то job-у пропускаем
+    - if: '$CI_MERGE_REQUEST_TITLE =~ /SKIP REVIEW/'
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: manual
+
+reset_db:
+  stage: review
+  extends:
+    - .setup_ssh
+  variables:
+    DEPLOY_DIST: '/home/deploy/app/$CI_COMMIT_REF_SLUG'
+    DB_NAME: $CI_COMMIT_REF_SLUG
+  script:
+    # Этот скрипт также удаляет БД и создает новую - нам подходит
+    - |
+      ssh $SSH_USER@$SSH_HOST <<EOF
+        ./$DEPLOY_DIST/current/bin/create-db-copy "$DB_PASSWORD" "$DB_NAME"
+      EOF
+  rules:
+    # Если название MR содержит SKIP REVIEW, то job-у пропускаем
+    - if: '$CI_MERGE_REQUEST_TITLE =~ /SKIP REVIEW/'
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: manual
