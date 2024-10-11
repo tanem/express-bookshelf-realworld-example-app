@@ -26,7 +26,7 @@
     "checkit": "0.7.0",
     "convict": "6.2.4",
     "convict-format-with-validator": "6.2.0",
-    "cookie-parser": "1.4.6",
+    "cookie-parser": "1.4.7",
     "cors": "2.8.5",
     "express": "4.18.2",
     "express-interceptor": "1.2.0",
