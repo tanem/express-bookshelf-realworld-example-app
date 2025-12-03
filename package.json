@@ -20,7 +20,7 @@
     "@hapi/boom": "10.0.1",
     "async-error-catcher": "1.2.0",
     "bcrypt": "5.1.0",
-    "body-parser": "1.20.2",
+    "body-parser": "1.20.3",
     "bookshelf": "1.2.0",
     "bookshelf-virtuals-plugin": "1.0.0",
     "checkit": "0.7.0",
