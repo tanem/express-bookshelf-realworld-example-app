@@ -45,19 +45,7 @@ $ npm run docker:test
 CLI args will be passed through to Jest. For example, to run in watch mode:
 
 ```
-$ npm run docker:test --watch
-```
-
-This project also passes the [realworld-server-tester](https://github.com/agrison/realworld-server-tester) test suite. First start the server:
-
-```
-$ npm run docker:start
-```
-
-Then in a new terminal window, assuming you've cloned the `realworld-server-tester` repo and changed to the correct directory, run:
-
-```
-$ java -jar target/realworld-server-tester-0.1.0-SNAPSHOT-standalone.jar http://localhost:3000/api
+$ npm run docker:test -- --watch
 ```
 
 ## Documentation
