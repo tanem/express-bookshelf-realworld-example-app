@@ -6,16 +6,30 @@ on:
   pull_request:
     branches: [master]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  ci:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: styfle/cancel-workflow-action@0.11.0
-        with:
-          access_token: ${{ github.token }}
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          check-latest: true
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run check:format
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cp .env.example .env
       - run: npm run docker:test
+      - uses: codecov/codecov-action@v5
+        with:
+          directory: ./_coverage
+          fail_ci_if_error: false

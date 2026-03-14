@@ -15,7 +15,6 @@ services:
     volumes:
       - .:/home/node/app
       - /home/node/app/node_modules
-      - /home/node/app/_coverage
 
   postgres:
     image: postgres:17.4

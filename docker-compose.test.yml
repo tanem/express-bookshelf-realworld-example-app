@@ -3,13 +3,6 @@ services:
     environment:
       - CI
       - DB_NAME=realworld_test
-      - GITHUB_ACTIONS
-      - GITHUB_HEAD_REF
-      - GITHUB_REF
-      - GITHUB_REPOSITORY
-      - GITHUB_RUN_ID
-      - GITHUB_SHA
-      - GITHUB_WORKFLOW
       - NODE_ENV=test
       - PINO_LEVEL=silent
   postgres:
