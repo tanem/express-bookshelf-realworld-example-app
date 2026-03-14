@@ -1,4 +1,5 @@
 .vscode/
+.env
 NOTES.md
 TODO.md
 _coverage/

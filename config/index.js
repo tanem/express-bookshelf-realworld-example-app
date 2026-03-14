@@ -87,6 +87,12 @@ const config = convict({
       directory: path.resolve(__dirname, '../db/seeds'),
     },
   },
+  allowedOrigins: {
+    doc: 'Comma-separated list of allowed CORS origins. Use * for all origins (development only).',
+    format: String,
+    default: '*',
+    env: 'ALLOWED_ORIGINS',
+  },
   secret: {
     doc: 'JWT secret',
     format: String,

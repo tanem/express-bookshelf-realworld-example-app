@@ -15,7 +15,7 @@ addMatchers.asymmetric({
     return (
       typeof decoded.id === 'number' &&
       decoded.username === username &&
-      (decoded.exp - decoded.iat) / 60 / 60 / 24 === 60
+      (decoded.exp - decoded.iat) / 60 / 60 / 24 === 7
     );
   },
 });
