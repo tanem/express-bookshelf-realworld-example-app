@@ -4,8 +4,8 @@ Guidelines for AI agents working on this codebase.
 
 ## Testing
 
-- Always tear down containers and volumes before testing: `docker-compose -f docker-compose.yml -f docker-compose.test.yml down -v`
-- Rebuild with `--no-cache` after dependency changes: `docker-compose build --no-cache node`
+- Always tear down containers and volumes before testing: `docker compose -f docker-compose.yml -f docker-compose.test.yml down -v`
+- Rebuild with `--no-cache` after dependency changes: `docker compose build --no-cache node`
 - Run `npm run docker:test` as the primary gate — all 52 tests must pass.
 - Run `npm run lint` and `npm run check:format` after any code change.
 - Verify the app boots with `npm run docker:start` and responds to `curl http://localhost:3000/api/tags`.
