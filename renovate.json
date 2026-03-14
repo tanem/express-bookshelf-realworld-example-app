@@ -1,20 +1,14 @@
 {
   "extends": [
-    "config:js-app",
+    "config:recommended",
     ":automergeAll",
     ":disableRateLimiting",
     ":rebaseStalePrs",
-    ":masterIssue"
+    ":dependencyDashboard"
   ],
   "lockFileMaintenance": {
     "enabled": true
   },
-  "packageRules": [
-    {
-      "packageNames": ["node"],
-      "enabled": false
-    }
-  ],
   "prCreation": "not-pending",
   "stabilityDays": 3
 }
