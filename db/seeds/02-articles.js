@@ -1,9 +1,8 @@
 'use strict';
 
+const crypto = require('crypto');
 const chance = require('chance').Chance('articles-seed');
-const moment = require('moment');
 const slug = require('slug');
-const {v4: uuidv4} = require('uuid');
 
 const getArticles = async (knex) => {
   const userIds = await knex('users').pluck('id');
@@ -11,15 +10,15 @@ const getArticles = async (knex) => {
     .map((userId) =>
       Array.from({length: 100}, () => {
         const title = chance.sentence({words: 3});
-        const date = moment()
-          .subtract(chance.integer({min: 0, max: 18}), 'months')
-          .toISOString();
+        const d = new Date();
+        d.setMonth(d.getMonth() - chance.integer({min: 0, max: 18}));
+        const date = d.toISOString();
         return {
           author: userId,
           body: chance.paragraph({sentences: 10}),
           created_at: date,
           description: chance.paragraph({sentences: 2}),
-          slug: slug(`${title}-${uuidv4().substr(0, 6)}`, {
+          slug: slug(`${title}-${crypto.randomUUID().slice(0, 6)}`, {
             lower: true,
           }),
           title,

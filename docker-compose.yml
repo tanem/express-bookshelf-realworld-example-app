@@ -1,25 +1,28 @@
-version: '3.2'
-
 services:
   node:
     build: .
-    image: node
+    image: express-bookshelf-realworld
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     ports:
       - 3000:3000
     environment:
       - DB_HOST=postgres
-      - DB_PASSWORD=password
-      - DB_USER=realworld
-      - SECRET=secret
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+      - SECRET=${SECRET}
     volumes:
       - .:/home/node/app
       - /home/node/app/node_modules
-      - /home/node/app/_coverage
 
   postgres:
-    image: postgres:16.3
+    image: postgres:17.4
     environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=realworld
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${DB_USER} -d postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
