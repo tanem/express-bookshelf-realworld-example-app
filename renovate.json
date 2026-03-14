@@ -11,10 +11,6 @@
   },
   "packageRules": [
     {
-      "matchPackageNames": ["knex"],
-      "allowedVersions": "< 0.22.0"
-    },
-    {
       "packageNames": ["node"],
       "enabled": false
     }

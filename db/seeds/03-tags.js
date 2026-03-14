@@ -1,7 +1,6 @@
 'use strict';
 
 const chance = require('chance').Chance('tags-seed');
-const moment = require('moment');
 
 const getTags = async (knex) => {
   const possibleTags = Array.from({length: 10}, () => {
@@ -19,9 +18,9 @@ const getTags = async (knex) => {
     .reduce((memo, arr) => memo.concat(arr), [])
     .filter((e, i, a) => a.indexOf(e) === i)
     .map((tag) => {
-      const date = moment()
-        .subtract(chance.integer({min: 0, max: 18}), 'months')
-        .toISOString();
+      const d = new Date();
+      d.setMonth(d.getMonth() - chance.integer({min: 0, max: 18}));
+      const date = d.toISOString();
       return {
         name: tag,
         created_at: date,
@@ -45,9 +44,9 @@ const getArticleTags = (taggedArticles) => async (knex) => {
     })
     .reduce((memo, arr) => memo.concat(arr), [])
     .map(([article, tag]) => {
-      const date = moment()
-        .subtract(chance.integer({min: 0, max: 18}), 'months')
-        .toISOString();
+      const d = new Date();
+      d.setMonth(d.getMonth() - chance.integer({min: 0, max: 18}));
+      const date = d.toISOString();
       return {
         article,
         tag,
