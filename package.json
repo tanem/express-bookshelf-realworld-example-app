@@ -78,6 +78,7 @@
     "testEnvironment": "<rootDir>/test-support/test-environment.js"
   },
   "engines": {
-    "npm": ">=8.0.0"
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
   }
 }

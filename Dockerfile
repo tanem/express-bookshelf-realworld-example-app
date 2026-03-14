@@ -1,4 +1,4 @@
-FROM node:16.15.0
+FROM node:22-slim
 RUN mkdir -p /home/node/app/_coverage && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 COPY --chown=node:node package*.json ./
