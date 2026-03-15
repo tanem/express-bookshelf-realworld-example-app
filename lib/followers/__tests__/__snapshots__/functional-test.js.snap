@@ -1,13 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`followers DELETE /api/profiles/:username/follow when the user is authenticated and the user is not followed should return a not found error 1`] = `
+{
+  "body": {
+    "errors": {
+      "error": {
+        "data": null,
+        "isBoom": true,
+        "isServer": false,
+        "message": "Not Found",
+        "output": {
+          "headers": {},
+          "payload": {
+            "error": "Not Found",
+            "message": "Not Found",
+            "statusCode": 404,
+          },
+          "statusCode": 404,
+        },
+      },
+      "message": "Not Found",
+    },
+  },
+  "status": 404,
+}
+`;
+
 exports[`followers DELETE /api/profiles/:username/follow when the user is authenticated and the user to unfollow is found should unfollow the user to unfollow 1`] = `
 {
   "body": {
     "profile": {
-      "bio": "Account Executive",
+      "bio": "Microbiologist",
       "following": false,
-      "image": "//www.gravatar.com/avatar/042d96a198ea28c8f54e055a3679e9cd",
-      "username": "wut",
+      "image": "//www.gravatar.com/avatar/558fb2b020a9a4f802d73e42810f6618",
+      "username": "sago",
     },
   },
   "status": 200,
@@ -63,6 +89,19 @@ exports[`followers DELETE /api/profiles/:username/follow when the user is not au
     },
   },
   "status": 401,
+}
+`;
+
+exports[`followers POST /api/profiles/:username/follow when the user is authenticated and the user is already followed should return an unprocessable entity error 1`] = `
+{
+  "body": {
+    "errors": {
+      "follower": [
+        "is already following this user",
+      ],
+    },
+  },
+  "status": 422,
 }
 `;
 

@@ -26,6 +26,19 @@ exports[`users GET /api/user when the user is not authenticated should return an
 }
 `;
 
+exports[`users POST /api/users when the email has already been taken should return an unprocessable entity error 1`] = `
+{
+  "body": {
+    "errors": {
+      "email": [
+        "has already been taken",
+      ],
+    },
+  },
+  "status": 422,
+}
+`;
+
 exports[`users POST /api/users when the request body is invalid should return an unprocessable entity error 1`] = `
 {
   "body": {
@@ -38,6 +51,45 @@ exports[`users POST /api/users when the request body is invalid should return an
       ],
       "username": [
         "can't be blank",
+      ],
+    },
+  },
+  "status": 422,
+}
+`;
+
+exports[`users POST /api/users when the username has already been taken should return an unprocessable entity error 1`] = `
+{
+  "body": {
+    "errors": {
+      "username": [
+        "has already been taken",
+      ],
+    },
+  },
+  "status": 422,
+}
+`;
+
+exports[`users POST /api/users/login when the email does not exist should return an unprocessable entity error 1`] = `
+{
+  "body": {
+    "errors": {
+      "email": [
+        "is invalid",
+      ],
+    },
+  },
+  "status": 422,
+}
+`;
+
+exports[`users POST /api/users/login when the password is wrong should return an unprocessable entity error 1`] = `
+{
+  "body": {
+    "errors": {
+      "password": [
+        "is invalid",
       ],
     },
   },

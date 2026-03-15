@@ -4,10 +4,10 @@ exports[`profiles GET /api/profiles/:username when the user is authenticated sho
 {
   "body": {
     "profile": {
-      "bio": "Contract Administrator",
+      "bio": "International Acct.",
       "following": false,
-      "image": "//www.gravatar.com/avatar/381695debd1a3738c5b4bb61d125ceb9",
-      "username": "wochaco",
+      "image": "//www.gravatar.com/avatar/c6deca3e929fa873a37e05a5e8ef2359",
+      "username": "afbi",
     },
   },
   "status": 200,
@@ -18,10 +18,10 @@ exports[`profiles GET /api/profiles/:username when the user is not authenticated
 {
   "body": {
     "profile": {
-      "bio": "Interpreter",
+      "bio": "Investment Banker",
       "following": false,
-      "image": "//www.gravatar.com/avatar/bbd7b116dd01d6f12cb1b279a4625885",
-      "username": "ela",
+      "image": "//www.gravatar.com/avatar/e48cdc9b7d413244ad84b2d01ece2641",
+      "username": "ewlegge",
     },
   },
   "status": 200,
