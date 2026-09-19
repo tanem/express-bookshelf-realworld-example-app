@@ -17,7 +17,7 @@ services:
       - /home/node/app/node_modules
 
   postgres:
-    image: postgres:17.4
+    image: postgres:18.4
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_USER=${DB_USER}
