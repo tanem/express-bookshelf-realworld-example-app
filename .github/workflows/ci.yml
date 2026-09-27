@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: cp .env.example .env
       - run: npm run docker:test
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v7
         with:
           directory: ./_coverage
           fail_ci_if_error: false
