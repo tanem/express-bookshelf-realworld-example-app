@@ -10,5 +10,5 @@
     "enabled": true
   },
   "prCreation": "not-pending",
-  "stabilityDays": 3
+  "minimumReleaseAge": "3 days"
 }
