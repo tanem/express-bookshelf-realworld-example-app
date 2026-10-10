@@ -1,4 +1,5 @@
 {
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
   "extends": [
     "config:recommended",
     ":automergeAll",
@@ -7,8 +8,9 @@
     ":dependencyDashboard"
   ],
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "minimumReleaseAge": null
   },
-  "prCreation": "not-pending",
-  "stabilityDays": 3
+  "minimumReleaseAge": "3 days",
+  "osvVulnerabilityAlerts": true
 }
